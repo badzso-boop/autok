@@ -1,0 +1,93 @@
+Drivingpalace
+
+Frontend
+    Kérdés: Mit használjak frontendnek? 
+        a. Vue   -> egyszerübb kezelni, de nem olyan komplett mint a React (vue router is npm-re épül)
+        b. React -> bonyolultabb, de van beépített router és így gyorsabban töltenek be az oldalak, NPM-RE ÉPÜL :(
+        c. HTML,CSS  -> fuck the reactive js we are oldschool B-)
+    menu: Kezdőlap, Utak, Helyszínek, Fórum, Csoportok,Kapcsolat, Szabályzat, Belépés/Regisztráció, Felhasználói profil
+    Oldalak:
+        Kezdőlap: 
+            Az oldal létrejöttének az oka, mivel mo-n nem igazán van ilyen hely a car communitynek ahol össze tud gyűlni és egységesen összetartani ezét létrehoztuk ezt az oldalt ahol meg lehet osztani másokkal mindent az utat amerre jartal, a helyszíneket az autódat itt nincsen gyűlölet mindenki aki szereti az autókat örömmel fogadjuk és közösöen építünk egy közösséget stb..
+            a szabályzatot tanulmányozzák át, legutóbb hozzáadott 3 út és 3 Helyszínek
+        Utak:
+            Kinézet: Bal oldalt részletes keresés kb 15% és középen az elemek 4db egy sorban 40db egy oldalon; A kártyákon lenne egy borítókép az útról (ha nem berakunk egy samplet), cím, hossz, olvass tovább gomb
+            Az összes utat kilistázza, de rá lehet szűrni megyékre, szerpentín, egyenes, út minőség: rossz, közepes, kiválló. Nézetség mérése!
+        Helyszínek:
+            Kinézet: Bal oldalt részletes keresés(15%): hely, méret, megközelíthetőség szerint. 4db egy sorban és 40db egy oldalon, borítókép, cím olvass tovább. Nézetség mérése!
+        Fórum:
+            2 részre osztva (50%-50%), bal oldalt a kategóriák, jobb oldalt a témákon belüli topikok, ha a topikra rányom a topic kommentek listája(tree el lehet rejteni a kommentre a válaszokat (facebook kommentek)). A kommentet lehet szivezni illetve válaszolni
+        Csoportok:
+            Mint a steam group -> létre lehet hozni egy csoportot annak lesz egy leadere, ő meg tud hívni embereket abba a groupba és akkor a felhasználó neve elé ki lesz írva a group neve amit tud változtatni ha több groupba is benne van.
+        Szabályzat:
+            Egy sima oldal ahol minden szbályt leírunk illetve hogy nem vállalunk felelősséget semmiért (regisztrációnál el kell fogadni)
+        Belépés/Regisztráció:
+            Felhasználónév, email, jelszó, (auto ?), Teljes név, (lábméret ?)
+        Felhasználói profil:
+            Lehet profil képet feltölteni, autórol képet feltölteni, leírást írni a kocsiról, bemutatkozást írni, jelszót változtatni, nyomon követni az utak és helyszínek nézettségét és szerkeszteni/törölni az adott infot
+        Kapcsolat:
+            minden infot leirunk -> kulon info@domain.hu email cim
+        Admin felület:
+            Külön az utakat kilistázza mint a felhasználóknak, csak lehet törölni/szerkeszteni
+            Külön a helyszíneket kilistázza mint a felhasználóknak, csak lehet törölni/szerkeszteni
+            Felhasználók törlése/felfüggesztése/bannolása - moderátorrá/adminná tétele
+            Fórum kategóriák/topicoc/kommentek moderálása/törlése
+Backend
+    Adatbázis terv:
+        Utak:
+            id
+            userid
+            picture
+            title
+            content
+            lenght
+            megye
+            type    -> szerpentín,egyenes
+            quality -> rossz, közepes, kiválló
+            nézetség
+            date
+        Helyszínek:
+            id
+            userid
+            picture
+            title
+            content
+            megye
+            megkozelíthetőség -> nehéz, nehézkes, könnyen
+            nézetség
+        Fórum:
+            kategóriák:
+                cid
+                userid
+                title
+                date
+            topic:
+                tid
+                cid
+                userid
+                title
+                date
+            comments:
+                id
+                tid
+                userid
+                content
+                answer -> commentid
+                date
+        Csoportok:
+            id
+            userid
+            title
+            color
+        Users:
+            id
+            ppicture
+            cpicture
+            leiras
+            password
+            email
+            fullname
+            username
+            groups(akár több is)
+            utakid (?)
+            helyszinekid (?)
