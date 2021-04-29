@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Drivingpalace</title>
+    </head>
+<body>
+    <div id="navbar">
+        <fejlec></fejlec>
+    </div>
+
+    <div id="front">
+        <div v-for = "(ut,index) in utak" style="border: 2px solid;">
+            <img style="width: 150px;" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Nem muxik">
+            <br>
+            <span>cim: {{ut.title}}</span>
+            <br>
+            <span>content: {{ut.content}}</span>
+            <br>
+            <span>hossz: {{ut.length}}</span>
+            <br>
+            <span>megye: {{ut.megye}}</span>
+            <br>
+            <span>tipus: {{ut.type}}</span>
+            <br>
+            <span>minoseg: {{ut.quality}}</span>
+            <br>
+            <span>nezetseg: {{ut.nezetseg}}</span>
+        </div>
+        <button v-on:click="elore()">Előre</button>
+        <p>{{page}}</p>
+        <button v-on:click="vissza()">Vissza</button>
+    </div>
+
+    <div id="footer">
+        <lablec></lablec>
+    </div>
+
+    <script src="../components/components.js"></script>
+    <script src="../js/utak.js"></script>
+</body>
+</html>
