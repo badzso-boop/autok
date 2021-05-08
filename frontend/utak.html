@@ -13,27 +13,58 @@
         <fejlec></fejlec>
     </div>
 
-    <div id="front">
-        <div v-for = "(ut,index) in utak" style="border: 2px solid;">
-            <img style="width: 150px;" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Nem muxik">
-            <br>
-            <span>cim: {{ut.title}}</span>
-            <br>
-            <span>content: {{ut.content}}</span>
-            <br>
-            <span>hossz: {{ut.length}}</span>
-            <br>
-            <span>megye: {{ut.megye}}</span>
-            <br>
-            <span>tipus: {{ut.type}}</span>
-            <br>
-            <span>minoseg: {{ut.quality}}</span>
-            <br>
-            <span>nezetseg: {{ut.nezetseg}}</span>
+    <div id="main">
+        <div id="search">
+            <select name="megyek" id="megye" v-model="megye">
+                <option value="valassz" selected>Kérem Válasszon</option>
+                <option value="Veszprém">Veszprém</option>
+                <option value="Bács-Kiskun">Bács-Kiskun</option>
+                <option value="Baranya">Baranya</option>
+                <option value="Békés">Békés</option>
+                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+                <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+                <option value="Fejér">Fejér</option>
+                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+                <option value="Hajdú-Buhar">Hajdú-Bihar</option>
+                <option value="Heves">Heves</option>
+                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+                <option value="Nógrád">Nógrád</option>
+                <option value="Somogy">Somogy</option>
+                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
+                <option value="Tolna">Tolna</option>
+                <option value="Vas">Vas</option>
+                <option value="Zala">Zala</option>
+                <option value="Pest">Pest</option>
+            </select>
+            <input type="text" placeholder="Megye">
+            <input type="text" placeholder="Típus" v-model="tipus">
+            <input type="text" placeholder="Minőség" v-model="minoseg">
+            <input type="number" placeholder="Hossz" v-model="hossz">
+            <button v-on:click="kereses()">Keresés</button>
         </div>
-        <button v-on:click="elore()">Előre</button>
-        <p>{{page}}</p>
-        <button v-on:click="vissza()">Vissza</button>
+        <div id="front">
+            <div v-for = "(ut,index) in utak" style="border: 2px solid;">
+                <img style="width: 150px;" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Nem muxik">
+                <br>
+                <span>cim: {{ut.title}}</span>
+                <br>
+                <span>content: {{ut.content}}</span>
+                <br>
+                <span>hossz: {{ut.length}}</span>
+                <br>
+                <span>megye: {{ut.megye}}</span>
+                <br>
+                <span>tipus: {{ut.type}}</span>
+                <br>
+                <span>minoseg: {{ut.quality}}</span>
+                <br>
+                <span>nezetseg: {{ut.nezetseg}}</span>
+            </div>
+            <button v-on:click="elore()">Előre</button>
+            <p>{{page}}</p>
+            <button v-on:click="vissza()">Vissza</button>
+        </div>
     </div>
 
     <div id="footer">

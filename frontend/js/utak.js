@@ -1,10 +1,16 @@
 var app = new Vue({
-    el: '#front',
+    el: '#main',
     data: {
+        //Utak
         utak: [],
         page:1,
         pageStart: 0,
-        pageEnd: 10
+        pageEnd: 10,
+        //keresés
+        megye: "",
+        tipus: "",
+        minoseg: "",
+        hossz: -1,
     },mounted: function() {
         this.getUtak()
     },
@@ -24,7 +30,7 @@ var app = new Vue({
                 this.utak.push({id: 0,
                     userid: 0,
                     picture: 'sample',
-                    title: 'Rátót',
+                    title: `Rátót${i}`,
                     content: 'Rohadt jó út rátót fele. Ez egy jó út!',
                     length: 15,
                     megye: 'Veszprém',
@@ -67,6 +73,9 @@ var app = new Vue({
             }
             //ujra meghivoma lekerest
             this.getUtak()
+        },
+        kereses: function() {
+            console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t minoseg: " + this.minoseg + "\t hossz: " + this.hossz);
         }
     } 
 })
