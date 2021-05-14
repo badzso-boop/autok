@@ -46,36 +46,47 @@
 
     <div id="main">
         <h2 class="text-center piros">Utak</h2>
-        <div class="card-deck mx-auto">
-            <div class="card m-2" style="width: 18rem;" v-for = "(ut,index) in mUtak" >
-                <img class="card-img-top" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
-                <div class="card-body">
-                    <h5 class="card-title">{{ut.title}}</h5>
-                    <p class="card-text">{{ut.content}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ut.megye}}</li>
-                    <li class="list-group-item">Hossz: {{ut.length}}</li>
-                    <li class="list-group-item">Típus: {{ut.type}}</li>
-                    <li class="list-group-item">Minőség: {{ut.quality}}</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+        <div class="col-xl">
+            <div class="card-deck mx-auto my-5">
+                <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(ut,index) in mUtak" >
+                    <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">{{ut.title}}</h5>
+                        <p class="card-text text-white">{{ut.content}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item sotetarny text-white">{{ut.megye}}</li>
+                        <li class="list-group-item sotetarny text-white">Hossz: {{ut.length}}</li>
+                        <li class="list-group-item sotetarny text-white">Típus: {{ut.type}}</li>
+                        <li class="list-group-item sotetarny text-white">Minőség: {{ut.quality}}</li>
+                    </ul>
+                    <div class="card-body mx-auto">
+                        <a href="#" class="card-link piros py-1 px-3">Card link</a>
+                        <a href="#" class="card-link piros py-1 px-3">Another link</a>
+                    </div>
                 </div>
             </div>
         </div>
-    
-        <h2 class="text-center piros">Helyek</h2>
-        <div v-for = "(hely,index) in mHely" style="border: 2px solid;">
-            <span>cim: {{hely.title}}</span>
-            <br>
-            <br>
-            <span>megye: {{hely.megye}}</span>
-            <br>
-            <span>tipus: {{hely.kozelithetoseg}}</span>
-            <br>
-            <span>nezetseg: {{hely.nezetseg}}</span>
+
+    <h2 class="text-center piros">Helyek</h2>
+    <div class="col-xl">
+        <div class="card-deck mx-auto my-5">
+            <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(hely,index) in mHely" >
+                <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
+                <div class="card-body">
+                    <h5 class="card-title text-white">{{hely.title}}</h5>
+                    <p class="card-text text-white">{{hely.content}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item sotetarny text-white">{{hely.megye}}</li>
+                    <li class="list-group-item sotetarny text-white">Hossz: {{hely.kozelithetoseg}}</li>
+                    <li class="list-group-item sotetarny text-white">Típus: {{hely.nezetseg}}</li>
+                </ul>
+                <div class="card-body mx-auto">
+                    <a href="#" class="card-link piros py-1 px-3">Card link</a>
+                    <a href="#" class="card-link piros py-1 px-3">Another link</a>
+                </div>
+            </div>
         </div>
     </div>
 

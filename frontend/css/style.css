@@ -9,7 +9,7 @@
     
 }
 
-.nav-link:hover
+.nav-link:hover, .card-link:hover
 {
     background-color: rgba(255,255,255,0.15);
     border-radius: 5px;
@@ -23,4 +23,9 @@ hr
 .fa
 {
     display: inline-block !important;
+}
+
+#icon:hover
+{
+    opacity: 0.8;
 }

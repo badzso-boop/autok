@@ -13,7 +13,7 @@ var app = new Vue({
             //utak 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
             console.log('kaki a rendszerben')
-            for(let i = 0; i < 3; i++)
+            for(let i = 0; i < 4; i++)
             {
                 this.mUtak.push({id: 0,
                     userid: 0,
@@ -37,7 +37,7 @@ var app = new Vue({
 
             //helyszínek 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
-            for(let i = 0; i < 3; i++)
+            for(let i = 0; i < 4; i++)
             {
                 this.mHely.push({id: 0,
                     userid: 0,
