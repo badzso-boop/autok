@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#main',
     data: {
-        uzenet: 'Üdvözöllek a Dribingpalace oldalán',
+        uzenet: 'SZoszi MO',
         mUtak: [],
         mHely: []
     },
@@ -12,6 +12,7 @@ var app = new Vue({
         getData: function() {
             //utak 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
+            console.log('kaki a rendszerben')
             for(let i = 0; i < 3; i++)
             {
                 this.mUtak.push({id: 0,

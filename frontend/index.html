@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Drivingpalace</title>
 </head>
@@ -14,8 +19,8 @@
     </div>
 
     <div id = "front">
-        <h2>Üdvözlünk a Drivingpalace oldalán</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <h2 class="text-center piros">Üdvözlünk a Drivingpalace oldalán!</h2>
+        <p class="px-5 pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
             molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
             numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
             optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
@@ -37,29 +42,34 @@
             totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam 
             quasi aliquam eligendi, placeat qui corporis!</p>
     </div>
+    <hr class=" my-5 w-75 text-center">
+
     <div id="main">
-        <h1>{{uzenet}}</h1>
-        <h3>Utak</h3>
-        <div v-for = "(ut,index) in mUtak" style="border: 2px solid;">
-            <span>cim: {{ut.title}}</span>
-            <br>
-            <span>content: {{ut.content}}</span>
-            <br>
-            <span>hossz: {{ut.length}}</span>
-            <br>
-            <span>megye: {{ut.megye}}</span>
-            <br>
-            <span>tipus: {{ut.type}}</span>
-            <br>
-            <span>minoseg: {{ut.quality}}</span>
-            <br>
-            <span>nezetseg: {{ut.nezetseg}}</span>
+        <h2 class="text-center piros">Utak</h2>
+        <div class="card-deck mx-auto">
+            <div class="card m-2" style="width: 18rem;" v-for = "(ut,index) in mUtak" >
+                <img class="card-img-top" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+                <div class="card-body">
+                    <h5 class="card-title">{{ut.title}}</h5>
+                    <p class="card-text">{{ut.content}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ut.megye}}</li>
+                    <li class="list-group-item">Hossz: {{ut.length}}</li>
+                    <li class="list-group-item">Típus: {{ut.type}}</li>
+                    <li class="list-group-item">Minőség: {{ut.quality}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         </div>
-        <h3>Helyszínek</h3>
+    
+        <h2 class="text-center piros">Helyek</h2>
         <div v-for = "(hely,index) in mHely" style="border: 2px solid;">
             <span>cim: {{hely.title}}</span>
             <br>
-            <span>content: {{hely.content}}</span>
             <br>
             <span>megye: {{hely.megye}}</span>
             <br>
@@ -73,7 +83,7 @@
         <lablec></lablec>
     </div>
 
-    <script src="components/components.js"></script>
-    <script src="js/main.js"></script>
+    <script type="application/javascript" src="components/components.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
 </body>
 </html>
