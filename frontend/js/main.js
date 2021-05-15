@@ -1,20 +1,22 @@
 var app = new Vue({
-    el: '#main',
+    el: '#proba',
     data: {
         uzenet: 'SZoszi MO',
         mUtak: [],
-        mHely: []
+        mHely: [],
+        szam: []
     },
-    mounted:function() {
-        this.getData();
+    mounted: function() {
+        //this.getData();
+        this.plusz();
     },
     methods: {
         getData: function() {
             //utak 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
-            console.log('kaki a rendszerben')
-            for(let i = 0; i < 4; i++)
+            for(let i = 0; i < 0; i++)
             {
+                console.log('baj ut')
                 this.mUtak.push({id: 0,
                     userid: 0,
                     picture: 'sample',
@@ -37,8 +39,9 @@ var app = new Vue({
 
             //helyszínek 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
-            for(let i = 0; i < 4; i++)
+            for(let i = 0; i < 0; i++)
             {
+                console.log('baj hely');
                 this.mHely.push({id: 0,
                     userid: 0,
                     picture: 'sample',
@@ -56,6 +59,13 @@ var app = new Vue({
                 .then(data => console.log(data))
                 .catch(err => console.error(err));
             */
+        },
+        plusz: function() {
+            console.log('szia ur')
+            for(let i = 0; i < 4; i++)
+            {
+                this.szam.push({kacsa: 'kacsa'})
+            }
         }
     }
 })

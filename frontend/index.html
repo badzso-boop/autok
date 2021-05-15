@@ -44,6 +44,10 @@
     </div>
     <hr class=" my-5 w-75 text-center">
 
+    <div id="proba">
+        <p v-for="(sz, index) in szam">{{sz.kacsa}} meg ez</p>
+    </div>
+
     <div id="main">
         <h2 class="text-center piros">Utak</h2>
         <div class="col-xl">
@@ -79,7 +83,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item sotetarny text-white">{{hely.megye}}</li>
-                    <li class="list-group-item sotetarny text-white">Hossz: {{hely.kozelithetoseg}}</li>
+                    <li class="list-group-item sotetarny text-white">Megközelíthetőség: {{hely.kozelithetoseg}}</li>
                     <li class="list-group-item sotetarny text-white">Típus: {{hely.nezetseg}}</li>
                 </ul>
                 <div class="card-body mx-auto">
