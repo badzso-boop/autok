@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: '#proba',
+    el: '#main',
     data: {
         uzenet: 'SZoszi MO',
         mUtak: [],
@@ -7,14 +7,13 @@ var app = new Vue({
         szam: []
     },
     mounted: function() {
-        //this.getData();
-        this.plusz();
+        this.getData();
     },
     methods: {
         getData: function() {
             //utak 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
-            for(let i = 0; i < 0; i++)
+            for(let i = 0; i < 4; i++)
             {
                 console.log('baj ut')
                 this.mUtak.push({id: 0,
@@ -39,7 +38,7 @@ var app = new Vue({
 
             //helyszínek 3db fetch (prototipus fetch), 
             //minden fetch elemnél pusholni kell a tömbbe
-            for(let i = 0; i < 0; i++)
+            for(let i = 0; i < 4; i++)
             {
                 console.log('baj hely');
                 this.mHely.push({id: 0,
@@ -59,13 +58,6 @@ var app = new Vue({
                 .then(data => console.log(data))
                 .catch(err => console.error(err));
             */
-        },
-        plusz: function() {
-            console.log('szia ur')
-            for(let i = 0; i < 4; i++)
-            {
-                this.szam.push({kacsa: 'kacsa'})
-            }
         }
     }
 })
