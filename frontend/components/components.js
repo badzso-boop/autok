@@ -38,8 +38,8 @@ Vue.component('fejlec', {
             </li>\
         </ul>\
         <ul class="navbar-nav navbar-right ml-auto">\
-            <li class="nav-item"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>\
-            <li class="nav-item"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>\
+            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>\
+            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>\
         </ul>\
     </div>\
 </nav>'

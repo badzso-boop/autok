@@ -10,7 +10,7 @@ var app = new Vue({
         megye: "",
         tipus: "",
         minoseg: "",
-        hossz: -1,
+        hossz: 0,
     },mounted: function() {
         this.getUtak()
     },
