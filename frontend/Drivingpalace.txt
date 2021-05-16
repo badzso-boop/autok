@@ -44,7 +44,7 @@ Backend
             megye
             type    -> szerpentín,egyenes
             quality -> rossz, közepes, kiválló
-            nézetség
+            nézettség
             date
         Helyszínek:
             id
@@ -54,7 +54,7 @@ Backend
             content
             megye
             megkozelíthetőség -> nehéz, nehézkes, könnyen
-            nézetség
+            nézettség
         Fórum:
             kategóriák:
                 cid

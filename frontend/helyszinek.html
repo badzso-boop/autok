@@ -19,7 +19,7 @@
     </div>
 
     <div id="main" class="container-fluid w-100">
-        <h2 class="text-center piros">Utak</h2>
+        <h2 class="text-center piros">Helyszínek</h2>
         <div class="row">
             <form id="search" class="col-xl-2">
                 <h3 class="mb-3">Szűrő</h3>
@@ -47,23 +47,14 @@
                     <option value="Zala">Zala</option>
                 </select>
 
-                <label for="tipus">Út típusa</label>
+                <label for="tipus">Megközelíthetőség</label>
                 <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
                     <option value="" disabled selected hidden>Kérem Válasszon</option>
-                    <option value="Szerpentín">Szerpentín</option>
-                    <option value="Egyenes">Egyenes</option>
+                    <option value="Könnyű">Könnyű</option>
+                    <option value="Közepes">Közepes</option>
+                    <option value="Nehéz">Nehéz</option>
                 </select>
 
-                <label for="minoseg">Út minősége</label>
-                <select name="minoseg" class="form-group d-block w-100 form-control" id="minoseg" v-model="minoseg">
-                    <option value="" disabled selected hidden>Kérem Válasszon</option>
-                    <option value="Szar">Rossz</option>
-                    <option value="Közepes">Közepes</option>
-                    <option value="Jó">Jó</option>
-                </select>
-                
-                <label for="hossz">Út hossza</label>
-                <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="hossz">
                 <button class="btn sotetarny text-white w-100 mb-5" v-on:click="kereses()">Keresés</button>
             </form>
 
