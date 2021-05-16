@@ -50,28 +50,30 @@
                 <label for="tipus">Megközelíthetőség</label>
                 <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
                     <option value="" disabled selected hidden>Kérem Válasszon</option>
-                    <option value="Könnyű">Könnyű</option>
-                    <option value="Közepes">Közepes</option>
+                    <option value="Könnyű">Könnyen</option>
+                    <option value="Közepes">Nehézkes</option>
                     <option value="Nehéz">Nehéz</option>
                 </select>
 
-                <button class="btn sotetarny text-white w-100 mb-5" v-on:click="kereses()">Keresés</button>
+                <label for="hossz">Férőhely</label>
+                <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="Fhely">
+
+                <button class="btn sotetarny text-white w-100 mb-5" v-on:click="kereses">Keresés</button>
             </form>
 
 
             <div class="col-xl">
                 <div class="card-deck mx-auto my-5">
-                    <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(ut,index) in utak" >
-                        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+                    <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(hely,index) in helyek" >
+                        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
                         <div class="card-body">
-                            <h5 class="card-title text-white">{{ut.title}}</h5>
-                            <p class="card-text text-white">{{ut.content}}</p>
+                            <h5 class="card-title text-white">{{hely.title}}</h5>
+                            <p class="card-text text-white">{{hely.content}}</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item sotetarny text-white">{{ut.megye}}</li>
-                            <li class="list-group-item sotetarny text-white">Hossz: {{ut.length}}</li>
-                            <li class="list-group-item sotetarny text-white">Típus: {{ut.type}}</li>
-                            <li class="list-group-item sotetarny text-white">Minőség: {{ut.quality}}</li>
+                            <li class="list-group-item sotetarny text-white">{{hely.megye}}</li>
+                            <li class="list-group-item sotetarny text-white">Megközelíthetőség: {{hely.kozelithetoseg}}</li>
+                            <li class="list-group-item sotetarny text-white">Férőhely: {{hely.hely}}</li>
                         </ul>
                         <div class="card-body mx-auto">
                             <a href="#" class="card-link piros py-1 px-3">Card link</a>
@@ -84,9 +86,9 @@
 
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <button class="btn d-inline pb-2" id="navigation" v-on:click="vissza()"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></button>
+                <button class="btn d-inline pb-2" id="navigation" v-on:click="vissza"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></button>
                 <span class="d-inline" id="navigation">{{page}}</span>
-                <button class="btn d-inline pb-2" id="navigation" v-on:click="elore()"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+                <button class="btn d-inline pb-2" id="navigation" v-on:click="elore"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
             </div>
         </div>
 
@@ -97,6 +99,6 @@
     </div>
 
     <script src="components/components.js"></script>
-    <script src="js/utak.js"></script>
+    <script src="js/helyszinek.js"></script>
 </body>
 </html>

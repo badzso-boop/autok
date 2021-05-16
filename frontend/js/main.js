@@ -49,6 +49,7 @@ var app = new Vue({
                     megye: 'Veszprém',
                     kozelithetoseg: 'könnyen',
                     nezetseg: 15,
+                    hely: 50,
                     date: '2021.04.29 18:30'})
             }
             // A lényegi rész ez a fetch lesz

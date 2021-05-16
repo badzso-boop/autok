@@ -1,16 +1,16 @@
 var app = new Vue({
     el: '#main',
     data: {
-        //Utak
-        utak: [],
+        //Helyek
+        helyek: [],
+        //Oldal
         page:1,
         pageStart: 0,
         pageEnd: 10,
         //keresés
         megye: "",
         tipus: "",
-        minoseg: "",
-        hossz: 0,
+        Fhely: 0,
     },mounted: function() {
         this.getUtak()
     },
@@ -27,16 +27,15 @@ var app = new Vue({
             console.log("listazasvege: "+this.pageEnd)
             for(let i = this.pageStart; i< this.pageEnd; i++)
             {
-                this.utak.push({id: 0,
+                this.helyek.push({id: 0,
                     userid: 0,
                     picture: 'sample',
-                    title: `Rátót${i}`,
-                    content: 'Rohadt jó út rátót fele. Ez egy jó út!',
-                    length: 15,
+                    title: 'Szabadja Halott város',
+                    content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',
                     megye: 'Veszprém',
-                    type: 'szerpentín',
-                    quality: 'kiválló',
+                    kozelithetoseg: 'könnyen',
                     nezetseg: 15,
+                    hely: 50,
                     date: '2021.04.29 18:30'})
             }
             /*
@@ -76,7 +75,7 @@ var app = new Vue({
         },
         kereses: function(event) {
             event.preventDefault();
-            console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t minoseg: " + this.minoseg + "\t hossz: " + this.hossz);
-        },
+            console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t ferohely: " + this.Fhely);
+        }
     } 
 })

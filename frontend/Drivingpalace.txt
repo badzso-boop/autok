@@ -54,6 +54,7 @@ Backend
             content
             megye
             megkozelíthetőség -> nehéz, nehézkes, könnyen
+            hely -> férőhely
             nézettség
         Fórum:
             kategóriák:
