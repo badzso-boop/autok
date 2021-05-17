@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Driving Palace</title>
+    </head>
+<body>
+    <div id="navbar">
+        <fejlec></fejlec>
+    </div>
+
+    <div id="main">
+        <h2>Út feltöltése</h2>
+        <form>
+            <input type="text" placeholder="Ide írja az út rövid címét">
+            <br>
+            <textarea name="leiras" id="leiras" cols="30" rows="10" placeholder="Kérem írja ide az út jellemzőit, mire kell figyelni stb..."></textarea>
+            <br>
+            <label for="megye">Kérem válassza ki melyik megyében található</label>
+            <select name="megyek" class="form-group d-block w-100 form-control" id="megye" v-model="megye">
+                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                <option value="Bács-Kiskun">Bács-Kiskun</option>
+                <option value="Baranya">Baranya</option>
+                <option value="Békés">Békés</option>
+                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+                <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+                <option value="Fejér">Fejér</option>
+                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+                <option value="Hajdú-Buhar">Hajdú-Bihar</option>
+                <option value="Heves">Heves</option>
+                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+                <option value="Nógrád">Nógrád</option>
+                <option value="Pest">Pest</option>
+                <option value="Somogy">Somogy</option>
+                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
+                <option value="Tolna">Tolna</option>
+                <option value="Vas">Vas</option>
+                <option value="Veszprém">Veszprém</option>
+                <option value="Zala">Zala</option>
+            </select>
+
+            <label for="tipus">Kérem adja meg az út típusát</label>
+            <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
+                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                <option value="Szerpentín">Szerpentín</option>
+                <option value="Egyenes">Egyenes</option>
+            </select>
+
+            <label for="minoseg">Kérem adja meg az út minőségét</label>
+            <select name="minoseg" class="form-group d-block w-100 form-control" id="minoseg" v-model="minoseg">
+                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                <option value="Szar">Rossz</option>
+                <option value="Közepes">Közepes</option>
+                <option value="Jó">Jó</option>
+            </select>
+
+            <label for="hossz">Kérem adja meg az út hosszát</label>
+                <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="hossz">
+                <button class="btn sotetarny text-white w-100 mb-5" v-on:click="kereses">Feltöltés</button>
+        </form>
+    </div>
+
+    <div id="footer">
+        <lablec></lablec>
+    </div>
+
+    <script src="components/components.js"></script>
+    <script src="js/ufeltolt.js"></script>
+</body>
+</html>
