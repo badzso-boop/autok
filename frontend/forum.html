@@ -14,8 +14,20 @@
     <title>Drivingpalace</title>
 </head>
 <body>
-    <div id="main">
-        
+    <div id="navbar">
+        <fejlec></fejlec>
     </div>
+
+    <div id="main">
+        <button v-for="(d, index) in kategoria" v-on:click="katValasztas(index)">{{d.cim}}</button>
+        <div v-if=""></div>
+    </div>
+
+    <div id="footer">
+        <lablec></lablec>
+    </div>
+
+    <script src="components/components.js"></script>
+    <script src="js/forum.js"></script>
 </body>
 </html>

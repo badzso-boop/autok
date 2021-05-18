@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,13 +19,15 @@
     </div>
 
     <div id="main">
-        <h2>Út feltöltése (Consoleban logolja)</h2>
-        <form>
-            <input type="text" placeholder="Ide írja az út rövid címét" v-model="title">
+        <form class="col-xl-2">
+            <h2>Helyszínek feltöltése</h2>
+            <input name="cim" type="text" placeholder="Ide írja a helyszín rövid címét" v-model="title">
             <br>
-            <textarea name="leiras" id="leiras" cols="30" rows="10" placeholder="Kérem írja ide az út jellemzőit, mire kell figyelni stb..." v-model="content"></textarea>
+
+            <textarea name="content" id="" cols="30" rows="10" v-model="content" placeholder="Kérem ide írja a leírását a helyszínnek."></textarea>
             <br>
-            <label for="megye">Kérem válassza ki melyik megyében található</label>
+
+            <label for="megye">Megye</label>
             <select name="megyek" class="form-group d-block w-100 form-control" id="megye" v-model="megye">
                 <option value="" disabled selected hidden>Kérem Válasszon</option>
                 <option value="Bács-Kiskun">Bács-Kiskun</option>
@@ -49,28 +51,22 @@
                 <option value="Zala">Zala</option>
             </select>
 
-            <label for="tipus">Kérem adja meg az út típusát</label>
-            <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="type">
+            <label for="tipus">Megközelíthetőség</label>
+            <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
                 <option value="" disabled selected hidden>Kérem Válasszon</option>
-                <option value="Szerpentín">Szerpentín</option>
-                <option value="Egyenes">Egyenes</option>
+                <option value="Könnyű">Könnyen</option>
+                <option value="Közepes">Nehézkes</option>
+                <option value="Nehéz">Nehéz</option>
             </select>
 
-            <label for="minoseg">Kérem adja meg az út minőségét</label>
-            <select name="minoseg" class="form-group d-block w-100 form-control" id="minoseg" v-model="quality">
-                <option value="" disabled selected hidden>Kérem Válasszon</option>
-                <option value="Szar">Rossz</option>
-                <option value="Közepes">Közepes</option>
-                <option value="Jó">Jó</option>
-            </select>
-
-            <label for="hossz">Kérem adja meg az út hosszát</label>
-            <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="length">
+            <label for="hossz">Férőhely</label>
+            <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="Fhely">
 
             <input type="file" @change="kepFeltolt">
 
             <button class="btn sotetarny text-white w-100 mb-5" v-on:click="feltoltes">Feltöltés</button>
-        </form>
+
+            <h2 v-if="proba != null">Hali</h2>
     </div>
 
     <div id="footer">
@@ -78,6 +74,6 @@
     </div>
 
     <script src="components/components.js"></script>
-    <script src="js/ufeltolt.js"></script>
+    <script src="js/helyfeltolt.js"></script>
 </body>
 </html>

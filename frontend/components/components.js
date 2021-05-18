@@ -1,7 +1,13 @@
 //Navbar (ha uj sort írsz \-t írj)
 Vue.component('fejlec', {
+    el: '#navbar',
+    data: function() {
+      return {
+        felhasznalo: null,
+        tipus: null, //admin, null->sima
+      }
+    },
     template: 
-    
     '<nav class="navbar navbar-dark navbar-expand-xl sotetarny mb-3">\
     <a class="navbar-brand" href="#">Driving Palace</a>\
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">\
@@ -22,24 +28,24 @@ Vue.component('fejlec', {
                 <a class="nav-link piros py-1 px-3" href="forum.html">Fórum</a>\
             </li>\
             <li class="nav-item">\
-                <a class="nav-link piros py-1 px-3" href="csoportok.html">Csoportok</a>\
+                <a class="nav-link piros py-1 px-3" href="csoportok.html" v-if="felhasznalo != null">Csoportok</a>\
             </li>\
             <li class="nav-item">\
                 <a class="nav-link piros py-1 px-3" href="szabalyzat.html">Szabályzat</a>\
             </li>\
             <li class="nav-item">\
-                <a class="nav-link piros py-1 px-3" href="profile.html">Felhasználói Profil</a>\
+                <a class="nav-link piros py-1 px-3" href="profile.html" v-if="felhasznalo != null">Felhasználói Profil</a>\
             </li>\
             <li class="nav-item">\
                 <a class="nav-link piros py-1 px-3" href="kapcsolat.html">Kapcsolat</a>\
             </li>\
             <li class="nav-item">\
-                <a class="nav-link piros py-1 px-3" href="admin.html">Admin felület</a>\
+                <a class="nav-link piros py-1 px-3" href="admin.html" v-if="tipus == `admin`">Admin felület</a>\
             </li>\
         </ul>\
         <ul class="navbar-nav navbar-right ml-auto">\
-            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>\
-            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>\
+            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html" v-if="felhasznalo == null"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>\
+            <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html" v-if="felhasznalo != null"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>\
         </ul>\
     </div>\
 </nav>'
@@ -97,9 +103,8 @@ Vue.component('lablec', {
   </div>'
 })
 
-var fejlec = new Vue({
-    el: '#navbar'
-})
+
+new Vue({el: '#navbar'})
 
 var lablec = new Vue({
     el: '#footer'
