@@ -18,18 +18,17 @@
         <fejlec></fejlec>
     </div>
 
-    <div id="main">
-        <form class="col-xl-2">
-            <h2>Helyszínek feltöltése</h2>
-            <input name="cim" type="text" placeholder="Ide írja a helyszín rövid címét" v-model="title">
+    <div id="main" class="container-fluid w-100">
+        <h2 class="text-center piros">Helyszínek feltöltése</h2>
+        <form class="w-75 mx-auto text-center pt-2">
+            <input type="text" placeholder="Név" v-model="title" class="w-50 text-center form-control mx-auto">
             <br>
 
-            <textarea name="content" id="" cols="30" rows="10" v-model="content" placeholder="Kérem ide írja a leírását a helyszínnek."></textarea>
+            <textarea class="form-control" name="leiras" id="leiras" cols="30" rows="10" placeholder="Leírás" v-model="content"></textarea>
             <br>
 
-            <label for="megye">Megye</label>
             <select name="megyek" class="form-group d-block w-100 form-control" id="megye" v-model="megye">
-                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                <option value="" disabled selected hidden>Megye</option>
                 <option value="Bács-Kiskun">Bács-Kiskun</option>
                 <option value="Baranya">Baranya</option>
                 <option value="Békés">Békés</option>
@@ -51,18 +50,26 @@
                 <option value="Zala">Zala</option>
             </select>
 
-            <label for="tipus">Megközelíthetőség</label>
             <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
-                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                <option value="" disabled selected hidden>Megközelíthetőség</option>
                 <option value="Könnyű">Könnyen</option>
                 <option value="Közepes">Nehézkes</option>
                 <option value="Nehéz">Nehéz</option>
             </select>
 
-            <label for="hossz">Férőhely</label>
-            <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="Fhely">
+            <div class="row pb-2">
+                <div class="col-xl-3 my-auto">
+                    <label for="hossz">Férőhely</label>
+                </div>
+                <div class="col my-auto input-group">
+                    <input type="number" class="form-control d-block" id="hossz" v-model="Fhely">
+                    <div class="input-group-append">
+                        <span class="input-group-text">fő</span>
+                    </div>
+                </div>
+            </div>
 
-            <input type="file" @change="kepFeltolt">
+            <input type="file" class="mt-2 mb-4" @change="kepFeltolt">
 
             <button class="btn sotetarny text-white w-100 mb-5" v-on:click="feltoltes">Feltöltés</button>
 
