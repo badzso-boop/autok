@@ -3,17 +3,17 @@ Vue.component('fejlec', {
     el: '#navbar',
     data: function() {
       return {
-        felhasznalo: null,
+        felhasznalo: 'szmajli01',
         tipus: null, //admin, null->sima
       }
     },
     template: 
     '<nav class="navbar navbar-dark navbar-expand-xl sotetarny mb-3">\
-    <a class="navbar-brand" href="#">Driving Palace</a>\
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">\
-        <span class="navbar-toggler-icon"></span>\
-    </button>\
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">\
+      <a class="navbar-brand" href="#">Driving Palace</a>\
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">\
+          <span class="navbar-toggler-icon"></span>\
+      </button>\
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">\
         <ul class="navbar-nav">\
             <li class="nav-item">\
                 <a class="nav-link  piros py-1 px-3" href="index.html">Főoldal</a>\
@@ -47,8 +47,17 @@ Vue.component('fejlec', {
             <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html" v-if="felhasznalo == null"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>\
             <li class="nav-item ml-2"><a class="nav-link piros py-1 px-1 d-inline" href="signup.html" v-if="felhasznalo != null"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>\
         </ul>\
-    </div>\
-</nav>'
+      </div>\
+    </nav>',
+  mounted: function() {
+    console.log(this.felhasznalo);
+    /*
+    fetch('http://example.com/songs')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err => console.error(err));
+    */
+  }
 })
 
 Vue.component('lablec', {
@@ -104,7 +113,9 @@ Vue.component('lablec', {
 })
 
 
-new Vue({el: '#navbar'})
+new Vue({
+  el: '#navbar'
+})
 
 var lablec = new Vue({
     el: '#footer'

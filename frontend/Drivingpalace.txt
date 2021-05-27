@@ -19,6 +19,8 @@ Frontend
             2 részre osztva (50%-50%), bal oldalt a kategóriák, jobb oldalt a témákon belüli topikok, ha a topikra rányom a topic kommentek listája(tree el lehet rejteni a kommentre a válaszokat (facebook kommentek)). A kommentet lehet szivezni illetve válaszolni
         Csoportok:
             Mint a steam group -> létre lehet hozni egy csoportot annak lesz egy leadere, ő meg tud hívni embereket abba a groupba és akkor a felhasználó neve elé ki lesz írva a group neve amit tud változtatni ha több groupba is benne van.
+        Rendezvények:
+            Olyan mint egy facebook feed a rendező rakhat ki posztokat erre a jelentkezők tudnak kommentelni. Lehet érdeklődni és Ott leszek-t jelölni. 
         Szabályzat:
             Egy sima oldal ahol minden szbályt leírunk illetve hogy nem vállalunk felelősséget semmiért (regisztrációnál el kell fogadni)
         Belépés/Regisztráció:
@@ -82,8 +84,8 @@ Backend
             color
         Users:
             id
-            ppicture
-            cpicture
+            ppicture -> profil kép
+            cpicture -> autóról kép
             leiras
             password
             email

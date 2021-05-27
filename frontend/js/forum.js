@@ -25,8 +25,7 @@ var app = new Vue({
     },
     methods: {
         katValasztas: function(x) {
-            console.log(x)
-            return ``
+            console.log()
         }
     }
 })

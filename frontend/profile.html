@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Drivingpalace</title>
+    </head>
+<body>
+    <div id="navbar">
+        <fejlec></fejlec>
+    </div>
+
+    <div id="main">
+        <h1>{{cim}}</h1>
+        <div id="left"  width="20%">
+            <h2>Menü</h2>
+            <button v-on:click="Madatok">Adatok</button>
+            <button v-on:click="Mutjaim">Útjaim</button>
+            <button v-on:click="Mhelyszinek">Helyszíneim</button>
+            <button>Rendezvényeim</button>
+            <button>Galériám</button>
+        </div>
+        <div id="right" width="80%">
+            <!--Adatok-->
+            <div id="elso" v-if="adatok">
+                <h2>{{alcim}}</h2>
+                <img v-bind:src="'kepek/' + pPicture + '.jpg'" alt="Profilkép" style="width: 250px;">
+                <img v-bind:src="'kepek/' + cPicture + '.jpg'" alt="Jármű kép" style="width: 250px;">
+                <h3>Felhasználónév: {{felhasznalo}}</h3>
+
+                <p v-if="szerk">{{fullname}}</p>
+                <input type="text" v-model="fullname" v-else="szerk">
+
+                <p v-if="szerk">{{email}}</p>
+                <input type="email" v-model="email" v-bind:disabled="szerk" v-else="szerk">
+
+                <p v-if="szerk">{{leiras}}</p>
+                <textarea name="" v-model="leiras" id="" cols="30" rows="10" v-bind:disabled="szerk" v-else="szerk"></textarea>
+
+                <ul v-if="szerk">
+                    <li v-for="group in groups" :key="group.id">
+                        {{group.name}}
+                    </li>
+                </ul>
+                <button v-else="szerk">Jelentkezés csoportokba</button>
+
+                <button v-on:click="szerkMent">{{gomb}}</button>
+            </div>
+
+            <!--Utak-->
+            <div id="masodik" v-if="utjaim">
+                <h2>{{alcim}}</h2>
+                <div v-if="utjaim" class="card-deck mx-auto my-5">
+                    <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(ut,index) in utak" >
+                        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">{{ut.title}}</h5>
+                            <p class="card-text text-white">{{ut.content}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush" v-show="!ut.edit">
+                            <li class="list-group-item sotetarny text-white">{{ut.megye}}</li>
+                            <li class="list-group-item sotetarny text-white">Hossz: {{ut.length}}</li>
+                            <li class="list-group-item sotetarny text-white">Típus: {{ut.type}}</li>
+                            <li class="list-group-item sotetarny text-white">Minőség: {{ut.quality}}</li>
+                        </ul>
+                        <div v-show="ut.edit">
+                            <!--Megye-->
+                            <label for="megye">Megye</label>
+                            <select name="megyek" class="form-group d-block w-100 form-control" id="megye" v-model="ut.megye">
+                                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                                <option value="Bács-Kiskun">Bács-Kiskun</option>
+                                <option value="Baranya">Baranya</option>
+                                <option value="Békés">Békés</option>
+                                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+                                <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+                                <option value="Fejér">Fejér</option>
+                                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+                                <option value="Hajdú-Buhar">Hajdú-Bihar</option>
+                                <option value="Heves">Heves</option>
+                                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+                                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+                                <option value="Nógrád">Nógrád</option>
+                                <option value="Pest">Pest</option>
+                                <option value="Somogy">Somogy</option>
+                                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
+                                <option value="Tolna">Tolna</option>
+                                <option value="Vas">Vas</option>
+                                <option value="Veszprém">Veszprém</option>
+                                <option value="Zala">Zala</option>
+                            </select>
+                            <!--Hossz-->
+                            <input type="number" v-model="ut.length">
+                            <!--Típus-->
+                            <label for="tipus">Út típusa</label>
+                            <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="ut.type">
+                                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                                <option value="Szerpentín">Szerpentín</option>
+                                <option value="Egyenes">Egyenes</option>
+                            </select>
+                            <!--Minőség-->
+                            <label for="minoseg">Út minősége</label>
+                            <select name="minoseg" class="form-group d-block w-100 form-control" id="minoseg" v-model="ut.quality">
+                                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                                <option value="Rossz">Rossz</option>
+                                <option value="Közepes">Közepes</option>
+                                <option value="Jó">Jó</option>
+                            </select>
+                        </div>
+                        <div class="card-body mx-auto">
+                            <button class="card-link piros py-1 px-3" v-on:click="szerkMent(index)">{{ut.gomb}}</button>
+                            <a href="#" class="card-link piros py-1 px-3">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Helyszínek-->
+            <div id="harmadik" v-if="helyszineim">
+                <h2>{{alcim}}</h2>
+                <div v-if="helyszineim" class="card-deck mx-auto my-5">
+                    <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "(hely,index) in helyek" >
+                        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">{{hely.title}}</h5>
+                            <p class="card-text text-white">{{hely.content}}</p>
+                        </div>
+                        <ul v-show="!hely.edit" class="list-group list-group-flush">
+                            <li class="list-group-item sotetarny text-white">{{hely.megye}}</li>
+                            <li class="list-group-item sotetarny text-white">Megközelíthetőség: {{hely.kozelithetoseg}}</li>
+                            <li class="list-group-item sotetarny text-white">Férőhely: {{hely.hely}}</li>
+                        </ul>
+                        <div v-show="hely.edit">
+                            <!--Megye-->
+                            <label for="megye">Megye</label>
+                            <select name="megyek" class="form-group d-block w-100 form-control" id="megye" v-model="hely.megye">
+                                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                                <option value="Bács-Kiskun">Bács-Kiskun</option>
+                                <option value="Baranya">Baranya</option>
+                                <option value="Békés">Békés</option>
+                                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+                                <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+                                <option value="Fejér">Fejér</option>
+                                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+                                <option value="Hajdú-Buhar">Hajdú-Bihar</option>
+                                <option value="Heves">Heves</option>
+                                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+                                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+                                <option value="Nógrád">Nógrád</option>
+                                <option value="Pest">Pest</option>
+                                <option value="Somogy">Somogy</option>
+                                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
+                                <option value="Tolna">Tolna</option>
+                                <option value="Vas">Vas</option>
+                                <option value="Veszprém">Veszprém</option>
+                                <option value="Zala">Zala</option>
+                            </select>
+
+                            <!--Megközelíthetőség-->
+                            <label for="tipus">Megközelíthetőség</label>
+                            <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="hely.kozelithetoseg">
+                                <option value="" disabled selected hidden>Kérem Válasszon</option>
+                                <option value="Könnyű">Könnyen</option>
+                                <option value="Közepes">Nehézkes</option>
+                                <option value="Nehéz">Nehéz</option>
+                            </select>
+
+                            <!--Férőhely-->
+                            <label for="hossz">Férőhely</label>
+                            <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="hely.hely">
+                        </div>
+                        <div class="card-body mx-auto">
+                            <button class="card-link piros py-1 px-3" v-on:click="szerkMent(index)">{{hely.gomb}}</button>
+                            <a href="#" class="card-link piros py-1 px-3">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <lablec></lablec>
+    </div>
+
+    <script src="components/components.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
