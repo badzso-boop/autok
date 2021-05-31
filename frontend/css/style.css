@@ -57,3 +57,38 @@ textarea
 {
     resize: none;
 }
+
+img[alt="Profilkép"]
+{
+    border: 0.20rem solid white !important;
+    margin: 0.20rem !important;
+    outline-color: grey !important;
+    outline-style: outset !important;
+}
+
+.break-word
+{
+    word-wrap: break-word;
+}
+
+
+@media screen and (max-width: 1200px)
+{
+    #left
+    {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    #menu-prof
+    {
+        display: inline-block !important;
+    }
+}
+
+@media screen and (min-width: 1200px)
+{
+    .btn-group
+    {
+        display: inline !important;
+    }
+}
