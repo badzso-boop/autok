@@ -26,11 +26,18 @@ var app = new Vue({
                 {id: 0,userid: 0,picture: 'sample',title: `Rátót`,content: 'Rohadt jó út rátót fele. Ez egy jó út!',length: 15,megye: 'Veszprém',type: 'szerpentín',quality: 'kiválló',nezetseg: 15,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
                 {id: 1,userid: 0,picture: 'sample',title: `Rátót`,content: 'Rohadt jó út rátót fele. Ez egy jó út!',length: 15,megye: 'Veszprém',type: 'szerpentín',quality: 'kiválló',nezetseg: 15,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
                 {id: 2,userid: 0,picture: 'sample',title: `Rátót`,content: 'Rohadt jó út rátót fele. Ez egy jó út!',length: 15,megye: 'Veszprém',type: 'szerpentín',quality: 'kiválló',nezetseg: 15,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+                {id: 3,userid: 0,picture: 'sample',title: `Rátót`,content: 'Rohadt jó út rátót fele. Ez egy jó út!',length: 15,megye: 'Veszprém',type: 'szerpentín',quality: 'kiválló',nezetseg: 15,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+                {id: 4,userid: 0,picture: 'sample',title: `Rátót`,content: 'Rohadt jó út rátót fele. Ez egy jó út!',length: 15,megye: 'Veszprém',type: 'szerpentín',quality: 'kiválló',nezetseg: 15,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+
+
               ],
         helyek: [
                     {id: 0,userid: 0,picture: 'sample',title: 'Szabadja Halott város',content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',megye: 'Veszprém',kozelithetoseg: 'könnyen',nezetseg: 15,hely: 50,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
                     {id: 1,userid: 0,picture: 'sample',title: 'Szabadja Halott város',content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',megye: 'Veszprém',kozelithetoseg: 'könnyen',nezetseg: 15,hely: 50,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
                     {id: 2,userid: 0,picture: 'sample',title: 'Szabadja Halott város',content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',megye: 'Veszprém',kozelithetoseg: 'könnyen',nezetseg: 15,hely: 50,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+                    {id: 3,userid: 0,picture: 'sample',title: 'Szabadja Halott város',content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',megye: 'Veszprém',kozelithetoseg: 'könnyen',nezetseg: 15,hely: 50,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+                    {id: 4,userid: 0,picture: 'sample',title: 'Szabadja Halott város',content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',megye: 'Veszprém',kozelithetoseg: 'könnyen',nezetseg: 15,hely: 50,date: '2021.04.29 18:30', edit: false, gomb: 'Szerkesztés'},
+
                 ],
     },mounted: function() {
         this.proba();

@@ -1,4 +1,3 @@
-helyszineknél lapozás fix
 felh. profilnál linkek - active
 adatok mentesenel --> sikeres / sikertelen
 

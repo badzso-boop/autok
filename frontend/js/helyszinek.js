@@ -12,10 +12,10 @@ var app = new Vue({
         tipus: "",
         Fhely: 0,
     },mounted: function() {
-        this.getUtak()
+        this.getHelyek()
     },
     methods: {
-        getUtak: function() {
+        getHelyek: function() {
             /*
             Elküldöm a szervernek az oldalszámot(default:0),
             Ő meg visszaküldi az első 50 utat
@@ -48,19 +48,19 @@ var app = new Vue({
         elore: function() {
             console.log('előre')
             //lenullazom az eddigit ami kint van
-            this.utak = []
+            this.helyek = []
             //léptetem előre a kiiras kezdetet es veget
             this.pageStart+=10;
             this.pageEnd+=10;
             //leptetem az oldalt
             this.page+=1;
             //ujra meghivom a lekerest
-            this.getUtak()
+            this.getHelyek()
         },
         vissza: function() {
             console.log('vissza')
             //lenullazom az eddigit ami kint van
-            this.utak = []
+            this.helyek = []
             //leellenorzom hogy az elso oldalon van-e
             if(this.pageStart==0)
             {
@@ -71,7 +71,7 @@ var app = new Vue({
                 this.page-=1;
             }
             //ujra meghivoma lekerest
-            this.getUtak()
+            this.getHelyek()
         },
         kereses: function(event) {
             event.preventDefault();
