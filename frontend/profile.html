@@ -23,11 +23,11 @@
         <div class="row">
             <div id="left" class="col-xl-3">
                 <h3 class="mb-3">Menü</h3>
-                <div class="btn-group" role="group"><button id="menu-prof" v-on:click="Madatok" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-address-card pr-2" aria-hidden="true"></i>Adatok</button></div>
-                <div class="btn-group" role="group"><button id="menu-prof" v-on:click="Mutjaim" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-road pr-2" aria-hidden="true"></i>Útjaim</button></div>
-                <div class="btn-group" role="group"><button id="menu-prof" v-on:click="Mhelyszinek" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-map-marker pr-2" aria-hidden="true"></i>Helyszíneim</button></div>
-                <div class="btn-group" role="group"><button id="menu-prof" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-calendar-check-o pr-2" aria-hidden="true"></i>Rendezvényeim</button></div>
-                <div class="btn-group" role="group"><button id="menu-prof" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-camera-retro pr-2" aria-hidden="true"></i>Galériám</button></div>
+                <div class="btn-group" role="group"><button v-bind:id="adatok" v-on:click="Madatok" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-address-card pr-2" aria-hidden="true"></i>Adatok</button></div>
+                <div class="btn-group" role="group"><button v-bind:id="utjaim" v-on:click="Mutjaim" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-road pr-2" aria-hidden="true"></i>Útjaim</button></div>
+                <div class="btn-group" role="group"><button v-bind:id="helyszineim" v-on:click="Mhelyszinek" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-map-marker pr-2" aria-hidden="true"></i>Helyszíneim</button></div>
+                <div class="btn-group" role="group"><button v-bind:id="rendezveny" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-calendar-check-o pr-2" aria-hidden="true"></i>Rendezvényeim</button></div>
+                <div class="btn-group" role="group"><button v-bind:id="galeria" class="btn w-75 mb-3 text-left pl-4"><i class="fa fa-camera-retro pr-2" aria-hidden="true"></i>Galériám</button></div>
             </div>
             <div id="right" class="col-xl-9">
                 <!--Adatok-->
@@ -51,12 +51,6 @@
 
                             <ul class="list-group list-group-flush w-75 mx-auto text-center" v-if="szerk">
                                 <h4 class="piros mt-4 font-weight-bold">Csoportjaim</h4>
-                                <li v-for="group in groups" class="list-group-item" :key="group.id">
-                                    {{group.name}}
-                                </li>
-                                <li v-for="group in groups" class="list-group-item" :key="group.id">
-                                    {{group.name}}
-                                </li>
                                 <li v-for="group in groups" class="list-group-item" :key="group.id">
                                     {{group.name}}
                                 </li>
