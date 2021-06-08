@@ -72,6 +72,8 @@ img[alt="Profilkép"]
 }
 
 
+
+
 @media screen and (max-width: 1200px)
 {
     #left
@@ -83,6 +85,11 @@ img[alt="Profilkép"]
     {
         display: inline-block !important;
     }
+    button[id="true"]
+{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 }
 
 @media screen and (min-width: 1200px)
@@ -91,4 +98,10 @@ img[alt="Profilkép"]
     {
         display: inline !important;
     }
+    button[id="true"]
+{
+    font-weight: bold;
+    font-size: 1.1rem;
+    transform: translate(10px);
+}
 }
