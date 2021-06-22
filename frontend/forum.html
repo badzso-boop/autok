@@ -23,13 +23,18 @@
             <button v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
         </div>
 
+        <!--Kategória hozzáadása-->
         <button v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
         <input type="text" v-if="katAdd" v-model="ujKat">
+
         <!--Kategóriák-->
         <div v-for="(d, index) in kategoria">
             <div style="border: 2px solid; margin: 15px">
+                <!--Kategóriák - Cím-->
                 <button v-on:click="katValasztas(index)">{{d.cim}} és {{d.id}}</button>
+                <!--Kategóriák - dátum-->
                 <h4>Dátum: {{d.date}}</h4>
+                <!--Kategória törlése gomb-->
                 <button v-if="moderalas">Kategória törlése</button>
             </div>
         </div>
@@ -37,12 +42,16 @@
         <!--Topikok-->
         <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
         <div v-if="Btopikok">
-            <br>
-            <hr>
+            <!--Topik hozzáadása-->
+            <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
+            <br> <!--Ezt majd kiszedheted-->
+            <hr> <!--Ezt majd kiszedheted-->
             <div v-for="(t, index) in topikok">
-                <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
+                
                 <div style="border: 2px solid; margin: 15px">
+                    <!--Topik cím-->
                     <button v-on:click="komValasztas(index)">{{t.cim}}</button>
+                    <!--Topik dátum-->
                     <h4>Dátum: {{t.date}}</h4>
                 </div>
             </div>
@@ -51,12 +60,15 @@
         <!--Kommentek-->
         <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
         <div v-if="Bkommentek">
-            <br>
-            <hr>
+            <br> <!--Ezt majd kiszedheted-->
+            <hr> <!--Ezt majd kiszedheted-->
             <div v-for="(k,index) in kommentek">
                 <div style="border: 2px solid; margin: 15px">
+                    <!--Komment picture-->
                     <img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
+                    <!--maga a komment-->
                     <p>komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
+                    <!--Komment törlése-->
                     <button v-if="moderalas">Komment törlése</button>
                 </div>
             </div>
