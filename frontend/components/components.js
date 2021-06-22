@@ -50,7 +50,7 @@ Vue.component('fejlec', {
       </div>\
     </nav>',
   mounted: function() {
-    console.log(this.felhasznalo);
+    //console.log(this.felhasznalo);
     /*
     fetch('http://example.com/songs')
         .then(response => response.json())

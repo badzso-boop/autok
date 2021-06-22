@@ -20,6 +20,8 @@
 
     <div id="main">
         <button v-for="(d, index) in kategoria" v-on:click="katValasztas(index)">{{d.cim}}</button>
+        <div v-if="Btopikok" v-for="(t, index) in topikok"><button v-on:click="komValasztas(index)">{{t.cim}}</button></div>
+        <div v-if="Bkommentek" v-for="(k,index) in kommentek"><img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt=""><p>{{k.cim}}</p></div>
     </div>
 
     <div id="footer">
