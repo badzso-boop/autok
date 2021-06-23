@@ -40,6 +40,8 @@ var app = new Vue({
             {uId: 3,tId: 1,id: 6,cim: 'köszi kurva drága volt', date: '2021.03.01'},
             {uId: 2,tId: 1,id: 7,cim: 'megérte', date: '2021.03.01'},
         ],
+
+        //oldal kezelése
         Bkategoria : true,
         Btopikok: false,
         Bkommentek: false,
