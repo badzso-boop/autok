@@ -56,9 +56,15 @@
                     <input class="d-inline form-control w-50" placeholder="Új kategória neve" type="text" v-if="katAdd" v-model="ujKat">
                 </div>
             </div>
+
+            <!--FA-->
+            <div>
+                <h4>Hali</h4>
+                <p v-for="(fa,index) in fak">{{fa}}</p>
+            </div>
     
             <!--Kategóriák-->
-            <div class="mt-2" v-for="(d, index) in kategoria">
+            <div class="mt-2" v-for="(d, index) in kategoria" v-if="Bkategoria">
                 <div>
                     <!--Kategóriák - Cím-->
                     <button v-on:click="katValasztas(index)">{{d.cim}} és {{d.id}}</button>

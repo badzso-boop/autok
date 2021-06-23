@@ -40,8 +40,10 @@ var app = new Vue({
             {uId: 3,tId: 1,id: 6,cim: 'köszi kurva drága volt', date: '2021.03.01'},
             {uId: 2,tId: 1,id: 7,cim: 'megérte', date: '2021.03.01'},
         ],
+        Bkategoria : true,
         Btopikok: false,
         Bkommentek: false,
+        fak: [],
         moderalas: false,
         Szmoderalas: 'Moderálás',
         katAdd: false,
@@ -75,7 +77,15 @@ var app = new Vue({
         },
         katValasztas: function(x) {
             console.log("Cím:" + this.kategoria[x].cim + ", ID: " + this.kategoria[x].id);
+
+            //Oldal menedzselése => mi látszódjon és mi nem
             this.Btopikok = true;
+            this.Bkategoria = false;
+
+            //TREE 
+            this.fak.push(this.kategoria[x].cim)
+
+
             //Lekérjük a szerverről a bizonyos id-val rendelkező kommenteket, majd a topikok Object-be berakjuk :D
             //this.kategoria[x].id => az id (tulajdonképp az x)
             /*
@@ -87,7 +97,13 @@ var app = new Vue({
         },
         komValasztas: function(x) {
             console.log("Cím:" + this.topikok[x].cim + ", ID: " + this.topikok[x].id);
+
+            //Oldal menedzselése
             this.Bkommentek = true;
+            this.Btopikok = false;
+
+            this.fak.push(this.topikok[x].cim)
+
             this.kommentek.push(
                 {uId: 4,tId: 2,id: 5,cim: 'Jók a tükrök', date: '2021.03.01'},
                 {uId: 5,tId: 2,id: 6,cim: 'köszi, de gyári', date: '2021.03.01'},
