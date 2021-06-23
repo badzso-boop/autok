@@ -71,6 +71,17 @@ img[alt="Profilkép"]
     word-wrap: break-word;
 }
 
+.forum-menu-top
+{
+    font-size: 1.1rem !important;
+    text-decoration: none;
+    color: black;
+}
+.forum-menu-top:hover
+{
+    color: #EF7215;
+}
+
 
 
 
@@ -86,10 +97,14 @@ img[alt="Profilkép"]
         display: inline-block !important;
     }
     button[id="true"]
-{
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+    {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    #forum-menu
+    {
+        border: 0 !important;
+    }
 }
 
 @media screen and (min-width: 1200px)
