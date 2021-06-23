@@ -30,7 +30,7 @@
                 <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
             </div>
             <div class="m-0 p-1 text-center">
-                <h5>Mostanasdsadi top témák</h5>
+                <h5>Mostani top témák</h5>
                 <hr>
                 <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
@@ -44,22 +44,21 @@
                 <select class="d-inline form-control w-25">
                     <option selected="">Latest</option>
                     <option value="1">Popular</option>
-                    <option value="3">Solved</option>
+                    <option value="2">Solved</option>
                     <option value="3">Unsolved</option>
-                    <option value="3">No Replies Yet</option>
+                    <option value="4">No Replies Yet</option>
                 </select>
                 <div id="menu" class="d-inline" v-if="beosztas === 'admin'">
                     <button class="btn btn-dark my-1 pull-right" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
                 </div>
                 <div class="d-block">
                     <button class="d-inline my-2 btn btn-dark" v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
-                    <input class="d-inline form-control w-50" placeholder="Új kategória neve" type="text" v-if="katAdd" v-model="ujKat">
+                    <input class="d-inline form-control w-50" v-if="moderalas" placeholder="Új kategória neve" type="text" v-if="katAdd" v-model="ujKat">
                 </div>
             </div>
 
             <!--FA-->
             <div>
-                <h4>Hali</h4>
                 <p v-for="(fa,index) in fak">{{fa}}</p>
             </div>
     
