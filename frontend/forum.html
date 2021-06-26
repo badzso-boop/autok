@@ -18,7 +18,7 @@
         <fejlec></fejlec>
     </div>
 
-    <div id="main" class="row w-100 break-word">
+    <div id="main" class="row min-vh-100 w-100 m-0 break-word">
         <div id="forum-menu" class="col-xl-2 mx-auto border-right border-dark">
             <div class="mb-3 m-0 p-1 text-center">
                 <h5>Legtöbbet hozzászólt</h5>
@@ -29,7 +29,7 @@
                 <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
             </div>
-            <div class="m-0 p-1 text-center">
+            <div class="mb-3 m-0 p-1 text-center">
                 <h5>Mostani top témák</h5>
                 <hr>
                 <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
@@ -39,9 +39,9 @@
                 <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
             </div>
         </div>
-        <div class="col-xl p-0 ml-2">
+        <div class="col-xl mx-auto">
             <div class="p-3 m-0  border-top border-bottom border-dark">
-                <select class="d-inline form-control w-25">
+                <select class="d-inline form-control w-50">
                     <option selected="">Latest</option>
                     <option value="1">Popular</option>
                     <option value="2">Solved</option>
@@ -49,7 +49,7 @@
                     <option value="4">No Replies Yet</option>
                 </select>
                 <div id="menu" class="d-inline" v-if="beosztas === 'admin'">
-                    <button class="btn btn-dark my-1 pull-right" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
+                    <button class="btn btn-dark mb-2 pull-right" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
                 </div>
                 <div class="d-block">
                     <button class="d-inline my-2 btn btn-dark" v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
@@ -58,19 +58,26 @@
             </div>
 
             <!--FA-->
-            <div>
-                <p v-for="(fa,index) in fak">{{fa}}</p>
+            <div class="ml-3 mt-3">
+                <span v-for="(fa,index) in fak">{{fa}} > </span>
             </div>
     
             <!--Kategóriák-->
-            <div class="mt-2" v-for="(d, index) in kategoria" v-if="Bkategoria">
-                <div>
+            <div class="mt-2 row" v-for="(d, index) in kategoria" v-if="Bkategoria">
+                <div class="col-xl d-inline">
                     <!--Kategóriák - Cím-->
-                    <button v-on:click="katValasztas(index)">{{d.cim}} és {{d.id}}</button>
-                    <!--Kategóriák - dátum-->
-                    <h4>Dátum: {{d.date}}</h4>
-                    <!--Kategória törlése gomb-->
-                    <button v-if="moderalas">Kategória törlése</button>
+                    <div class="card-deck">
+                            <div class="card">
+                                <button class="btn btn-dark" v-on:click="katValasztas(index)">
+                                    <div class="card-body">
+                                        <p class="card-title">{{d.cim}} és {{d.id}}</p>
+                                        <p class="card-subtitle">Dátum: {{d.date}}</p>
+                                    </div>
+                                </button>
+                            </div>
+                        <!--Kategória törlése gomb-->
+                        <button v-if="moderalas">Kategória törlése</button>
+                    </div>
                 </div>
             </div>
     
@@ -79,10 +86,7 @@
             <div v-if="Btopikok">
                 <!--Topik hozzáadása-->
                 <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
-                <br> <!--Ezt majd kiszedheted-->
-                <hr> <!--Ezt majd kiszedheted-->
                 <div v-for="(t, index) in topikok">
-                    
                     <div style="border: 2px solid; margin: 15px">
                         <!--Topik cím-->
                         <button v-on:click="komValasztas(index)">{{t.cim}}</button>
@@ -95,8 +99,6 @@
             <!--Kommentek-->
             <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
             <div v-if="Bkommentek">
-                <br> <!--Ezt majd kiszedheted-->
-                <hr> <!--Ezt majd kiszedheted-->
                 <div v-for="(k,index) in kommentek">
                     <div style="border: 2px solid; margin: 15px">
                         <!--Komment picture-->
