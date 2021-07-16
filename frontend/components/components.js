@@ -50,7 +50,7 @@ Vue.component('fejlec', {
       </div>\
     </nav>',
   mounted: function() {
-    //console.log(this.felhasznalo);
+    console.log('Be vagy lépve: ' + this.felhasznalo + ' néven');
     /*
     fetch('http://example.com/songs')
         .then(response => response.json())

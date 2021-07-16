@@ -23,23 +23,31 @@
             <div class="mb-3 m-0 p-1 text-center">
                 <h5>Legtöbbet hozzászólt</h5>
                 <hr>
+                <a v-for="(topik, index) in Ltopik" class="d-block forum-menu-top nav-link" href="#">{{topik.cim}} - <span><kbd class="p-1">{{topik.kSzam}}</kbd></span></a>
+                <!--
                 <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
+                -->
             </div>
             <div class="m-0 p-1 text-center">
                 <h5>Mostani top témák</h5>
                 <hr>
+                <a v-for="(top, index) in Tkategoria" class="d-block forum-menu-top nav-link" href="#">{{top.cim}} - <span><kbd class="p-1">{{top.tSzam}}</kbd></span></a>
+
+                <!--
                 <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
                 <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
+                -->
             </div>
         </div>
         <div class="col-xl p-0 ml-2">
+            <button v-on:click="vissza">Visszanyil</button>
             <div class="p-3 m-0  border-top border-bottom border-dark">
                 <select class="d-inline form-control w-25">
                     <option selected="">Latest</option>
@@ -66,11 +74,11 @@
             <div class="mt-2" v-for="(d, index) in kategoria" v-if="Bkategoria">
                 <div>
                     <!--Kategóriák - Cím-->
-                    <button v-on:click="katValasztas(index)">{{d.cim}} és {{d.id}}</button>
+                    <button v-on:click="katValasztas(index)" style="width: 100px;height: 75px; border: 1px solid; border-radius: 15px;">{{d.cim}}</button>
                     <!--Kategóriák - dátum-->
                     <h4>Dátum: {{d.date}}</h4>
                     <!--Kategória törlése gomb-->
-                    <button v-if="moderalas">Kategória törlése</button>
+                    <button v-if="moderalas" v-on:click="katTorles(index)">Kategória törlése</button>
                 </div>
             </div>
     
@@ -98,13 +106,22 @@
                 <br> <!--Ezt majd kiszedheted-->
                 <hr> <!--Ezt majd kiszedheted-->
                 <div v-for="(k,index) in kommentek">
-                    <div style="border: 2px solid; margin: 15px">
-                        <!--Komment picture-->
-                        <img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
-                        <!--maga a komment-->
-                        <p>komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
-                        <!--Komment törlése-->
-                        <button v-if="moderalas">Komment törlése</button>
+                    <div v-bind:style="k.sztájl">
+                    <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
+                        <div style="border: 2px solid; margin: 15px" >
+                            <p>{{k.valaszId}} --- {{k.id}}</p>
+                            <!--Komment picture-->
+                            <img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
+                            <!--maga a komment-->
+                            <p>komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
+                            <!--Komment válasz-->
+                            <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
+                            <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
+                            <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
+
+                            <!--Komment törlése-->
+                            <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
+                        </div>
                     </div>
                 </div>
             </div>
