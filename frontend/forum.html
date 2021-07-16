@@ -79,13 +79,13 @@
                             <div class="card">
                                 <button class="btn btn-dark" v-on:click="katValasztas(index)">
                                     <div class="card-body">
-                                        <p class="card-title">{{d.cim}} és {{d.id}}</p>
+                                        <p class="card-title">{{d.cim}}</p>
                                         <p class="card-subtitle">Dátum: {{d.date}}</p>
                                     </div>
                                 </button>
                             </div>
                         <!--Kategória törlése gomb-->
-                        <button v-if="moderalas">Kategória törlése</button>
+                        <button v-if="moderalas" v-on:click="katTorles(index)">Kategória törlése</button>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
         <lablec></lablec>
     </div>
 
-    <script src="components/components.js"></script>
-    <script src="js/forum.js"></script>
+    <script type="application/javascript" src="components/components.js"></script>
+    <script type="application/javascript" src="js/forum.js"></script>
 </body>
 </html>
