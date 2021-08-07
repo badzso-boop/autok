@@ -94,7 +94,8 @@
             <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
             <div v-if="Btopikok">
                 <!--Topik hozzáadása-->
-                <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
+                <button v-if="moderalas && Btopikok" v-on:click="topikHozzaadasa">Topik hozzáadása</button>
+                <input v-if="moderalas" placeholder="Új topik neve" type="text" v-model="ujTop">
                 <div v-for="(t, index) in topikok">
                     <div style="border: 2px solid; margin: 15px">
                         <!--Topik cím-->
@@ -112,7 +113,7 @@
                     <div v-bind:style="k.sztájl">
                     <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
                         <div style="border: 2px solid; margin: 15px" >
-                            <p>{{k.valaszId}} --- {{k.id}}</p>
+                            <p>{{k.valaszId}} (melyikre valaszol) --- {{k.id}} (sajat id-ja)</p>
                             <!--Komment picture-->
                             <img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
                             <!--maga a komment-->

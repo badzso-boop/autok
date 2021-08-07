@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
         //Utak
         utak: [],
+        seged: [],
         page:1,
         pageStart: 0,
         pageEnd: 10,
@@ -39,12 +40,6 @@ var app = new Vue({
                     nezetseg: 15,
                     date: '2021.04.29 18:30'})
             }
-            /*
-            fetch('http://example.com/songs')
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(err => console.error(err));
-            */
         },
         elore: function() {
             console.log('előre')
