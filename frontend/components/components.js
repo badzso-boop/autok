@@ -26,10 +26,10 @@ Vue.component('fejlec', {
             </li>\
             <li class="nav-item">\
                 <a class="nav-link piros py-1 px-3" href="forum.html">Fórum</a>\
-            </li>\
+            </li><!--\
             <li class="nav-item">\
                 <a class="nav-link piros py-1 px-3" href="csoportok.html" v-if="felhasznalo != null">Csoportok</a>\
-            </li>\
+            </li>-->\
             <li class="nav-item">\
                 <a class="nav-link piros py-1 px-3" href="szabalyzat.html">Szabályzat</a>\
             </li>\
