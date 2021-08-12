@@ -17,15 +17,14 @@ var app = new Vue({
     },
     methods: {
         getUtak: function() {
-            /*
-            Elküldöm a szervernek az oldalszámot(default:0),
-            Ő meg visszaküldi az első 50 utat
-            VAAAGY
-            Lekérem az összeset aztán én sortolom ki 50-vel -> Eloszor ezt
-            */
+            //Elküldöm a szervernek a pageSTart és a pageEnd változókat,
             console.log("oldal: "+this.page)
             console.log("listazaskezdo: "+this.pageStart)
             console.log("listazasvege: "+this.pageEnd)
+        
+            //Elküldöm a this.pagestart és a this.padeEnd változót és akkor megkapom az adatokat responseban pl: első 10db utat
+
+            //feltöltöm a response adatokat az utak változóba így kerül ki az oldalra
             for(let i = this.pageStart; i< this.pageEnd; i++)
             {
                 this.utak.push({id: 0,
@@ -72,6 +71,7 @@ var app = new Vue({
         kereses: function(event) {
             event.preventDefault();
             console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t minoseg: " + this.minoseg + "\t hossz: " + this.hossz);
+            //Elküldöm az adatokat a szervernek és ő erre szűkíti rá a keresést
         },
     } 
 })

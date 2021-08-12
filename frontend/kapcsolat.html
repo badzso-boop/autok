@@ -26,10 +26,10 @@
         <br>
 
         <h4>Írjon nekünk emailt!</h4>
-        <input type="text" placeholder="Kérem adja meg a nevét!">
-        <input type="text" placeholder="Kérem adja meg az email címét">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Ide írhatja az üzenetet"></textarea>
-        <button>Küldés</button>
+        <input type="text" placeholder="Kérem adja meg a nevét!" v-model="nev">
+        <input type="text" placeholder="Kérem adja meg az email címét" v-model="email">
+        <textarea name="" id="" cols="30" rows="10" placeholder="Ide írhatja az üzenetet" v-model="szoveg"></textarea>
+        <button v-on:click="kuldes">Küldés</button>
     </div>
 
     <div id="footer">
@@ -37,5 +37,6 @@
     </div>
 
     <script type="application/javascript" src="components/components.js"></script>
+    <script type="application/javascript" src="js/kapcsolat.js"></script>
 </body>
 </html>
