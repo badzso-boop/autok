@@ -46,10 +46,9 @@
                 -->
             </div>
         </div>
-        <div class="col-xl p-0 ml-2">
-            <button v-on:click="vissza">Visszanyil</button>
         <div class="col-xl mx-auto">
             <div class="p-3 m-0  border-top border-bottom border-dark">
+                <button class="btn btn-dark my-2 ml-0 mr-2" v-on:click="vissza"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <select class="d-inline form-control w-50">
                     <option selected="">Latest</option>
                     <option value="1">Popular</option>
@@ -58,7 +57,7 @@
                     <option value="4">No Replies Yet</option>
                 </select>
                 <div id="menu" class="d-inline" v-if="beosztas === 'admin'">
-                    <button class="btn btn-dark mb-2 pull-right" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
+                    <button class="btn btn-dark mb-2 pull-right my-auto" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
                 </div>
                 <div class="d-block">
                     <button class="d-inline my-2 btn btn-dark" v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
@@ -68,7 +67,7 @@
 
             <!--FA-->
             <div class="ml-3 mt-3">
-                <span v-for="(fa,index) in fak">{{fa}} > </span>
+                <span v-for="(fa,index) in fak"> > {{fa}}</span>
             </div>
     
             <!--Kategóriák-->
@@ -92,46 +91,51 @@
     
             <!--Topikok-->
             <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
-            <div v-if="Btopikok">
                 <!--Topik hozzáadása-->
-                <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
-                <div v-for="(t, index) in topikok">
-                    <div style="border: 2px solid; margin: 15px">
-                        <!--Topik cím-->
-                        <button v-on:click="komValasztas(index)">{{t.cim}}</button>
-                        <!--Topik dátum-->
-                        <h4>Dátum: {{t.date}}</h4>
+            <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
+            <div class="mt-2 row"  v-if="Btopikok" v-for="(t, index) in topikok">
+                <div class="col-xl d-inline">
+                    <div class="card-deck">
+                        <div class="card">
+                            <button class="btn btn-dark" v-on:click="komValasztas(index)">
+                                <div class="card-body">
+                                    <!--Topik cím-->
+                                    <div class="card-title">{{t.cim}}</div>
+                                    <!--Topik dátum-->
+                                    <div class="card-subtitle">Dátum: {{t.date}}</div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
     
             <!--Kommentek-->
             <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
-            <div v-if="Bkommentek">
-                <div v-for="(k,index) in kommentek">
-                    <div v-bind:style="k.sztájl">
-                    <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
-                        <div style="border: 2px solid; margin: 15px" >
-                            <p>{{k.valaszId}} --- {{k.id}}</p>
+            <div class="mt-2 row" v-if="Bkommentek" v-for="(k,index) in kommentek">
+                <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
+                    <div class="col-xl d-inline py-2 border border-warning">
+                        <p>{{k.valaszId}} --- {{k.id}}</p>
+                        <div>
                             <!--Komment picture-->
-                            <img style="width: 100px; border-radius: 50px;" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
+                            <img class="img-thumbnail rounded d-inline m-2" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
                             <!--maga a komment-->
-                            <p>komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
-                            <!--Komment válasz-->
-                            <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
-                            <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
-                            <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
-
-                            <!--Komment törlése-->
-                            <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
+                            <p class="">komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
                         </div>
+
+                        <!--Komment válasz-->
+                        <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
+                        <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
+                        <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
+
+                        <!--Komment törlése-->
+                        <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
                     </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <div id="footer">
+    <div class="mt-5" id="footer">
         <lablec></lablec>
     </div>
 

@@ -82,6 +82,10 @@ img[alt="Profilkép"]
     color: #EF7215;
 }
 
+.img-thumbnail
+{
+    height: 50% !important;
+}
 
 
 
@@ -105,7 +109,12 @@ img[alt="Profilkép"]
     {
         border: 0 !important;
     }
-}
+    .img-thumbnail
+    {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
 @media screen and (min-width: 1200px)
 {
