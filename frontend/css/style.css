@@ -115,7 +115,7 @@ img[alt="Profilkép"]
         margin-left: auto !important;
         margin-right: auto !important;
     }
-
+}
 @media screen and (min-width: 1200px)
 {
     .btn-group
@@ -123,9 +123,9 @@ img[alt="Profilkép"]
         display: inline !important;
     }
     button[id="true"]
-{
-    font-weight: bold;
-    font-size: 1.1rem;
-    transform: translate(10px);
-}
+    {
+        font-weight: bold;
+        font-size: 1.1rem;
+        transform: translate(10px);
+    }
 }

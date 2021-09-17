@@ -1,5 +1,8 @@
+//Kategoria ID
 let kI = 7;
+//Topik ID
 let tI = 0;
+//Komment ID
 let cI = 10;
 var app = new Vue({
     el: '#main',
@@ -68,7 +71,10 @@ var app = new Vue({
         Szmoderalas: 'Moderálás',
         katAdd: false,
         katSzoveg: 'Kategória hozzáadása',
+        //Kategoria
         ujKat: '',
+        //Topik
+        ujTop: '',
 
         //Felhasználók kezelése
         belepve: false,
@@ -166,6 +172,20 @@ var app = new Vue({
             this.kategoria.push({id: kI,cim: this.ujKat, date: '2021.03.01'});
             this.ujKat = '';
             kI++;
+        },
+        topikHozzaadasa: function() {
+            //Megkeresem az adott kategorianak az id-t
+            var szam = -1;
+            for(let i = 0; i < Object.keys(this.kategoria).length; i++)
+            {
+                if(this.kategoria[i].cim === this.fak[0])
+                {
+                    szam = i;   
+                }
+            }
+
+            this.topikok.push({kId: szam, id: tI, cim: this.ujTop, date: '2021.03.01', kSzam: Math.floor(Math.random() * 10)})
+            this.ujTop = '';
         },
         katTorles: function(x) {
             this.kategoria.splice(x, 1);
