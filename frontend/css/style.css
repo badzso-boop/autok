@@ -87,6 +87,31 @@ img[alt="Profilkép"]
     height: 50% !important;
 }
 
+#login-cover
+{
+    position: absolute;
+    top: 50% !important;
+    transform: translateY(-50%);
+    transition: 1s ease-in-out;
+}
+.slide
+{
+    transform: translate(100%, -50%) !important;
+}
+
+#signup
+{
+    position: absolute;
+    top: 50% !important;
+    transform: translate(45%, -50%) !important;
+}
+
+#login
+{
+    position: absolute;
+    top: 50% !important;
+    transform: translate(155%, -50%) !important;
+}
 
 
 @media screen and (max-width: 1200px)

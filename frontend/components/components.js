@@ -1,3 +1,4 @@
+
 //Navbar (ha uj sort írsz \-t írj)
 Vue.component('fejlec', {
     el: '#navbar',
