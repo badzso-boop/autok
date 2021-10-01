@@ -5,12 +5,12 @@
 - bugok                         - Okt. 16
 
 adatbazis terv:
-============================================================================
-username       || text
-teljes_nev     || text - abc betui + kotojel,idezojel,pont
-email          || text
-magamrol       || text
-profil_kep     || text - max 5Mb
-auto_kep       || text - össz_max 15Mb "autokep1;autokep2;autokep3" (split)
-password       || text
-============================================================================
+============================================================================╗
+username       || text                                                      ║
+teljes_nev     || text - abc betui + kotojel,idezojel,pont                  ║
+email          || text                                                      ║
+magamrol       || text                                                      ║
+profil_kep     || text - max 5Mb                                            ║
+auto_kep       || text - össz_max 15Mb "autokep1;autokep2;autokep3" (split) ║
+password       || text                                                      ║
+============================================================================╝
