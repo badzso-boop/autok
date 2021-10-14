@@ -1,3 +1,0 @@
-adatok mentesenel --> sikeres / sikertelen
-
-egyelore ennyi jutott eszembe, az inputos szart meg holnap osszedobom
