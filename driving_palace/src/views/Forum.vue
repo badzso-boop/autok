@@ -1,126 +1,152 @@
 <template>
+<div>
   <div id="main" class="row min-vh-100 w-100 m-0 break-word">
-  <div id="forum-menu" class="col-xl-2 mx-auto border-right border-dark">
-    <div class="mb-3 m-0 p-1 text-center">
-    <h5>Legtöbbet hozzászólt</h5>
-    <hr>
-    <a v-for="topik in Ltopik" :key="topik.id" class="d-block forum-menu-top nav-link" href="#">{{topik.cim}} - <span><kbd class="p-1">{{topik.kSzam}}</kbd></span></a>
-    <!--
-    <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
-    -->
-    </div>
-    <div class="mb-3 m-0 p-1 text-center">
-    <h5>Mostani top témák</h5>
-    <hr>
-    <a v-for="top in Tkategoria" :key="top.id" class="d-block forum-menu-top nav-link" href="#">{{top.cim}} - <span><kbd class="p-1">{{top.tSzam}}</kbd></span></a>
-
-    <!--
-    <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
-    <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
-    -->
-    </div>
-  </div>
-  <div class="col-xl mx-auto">
-    <div class="p-3 m-0  border-top border-bottom border-dark">
-    <button class="btn btn-dark my-2 ml-0 mr-2" v-on:click="vissza"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-    <select class="d-inline form-control w-50">
-      <option selected="">Latest</option>
-      <option value="1">Popular</option>
-      <option value="2">Solved</option>
-      <option value="3">Unsolved</option>
-      <option value="4">No Replies Yet</option>
-    </select>
-    <div id="menu" class="d-inline" v-if="beosztas === 'admin'">
-      <button class="btn btn-dark mb-2 pull-right my-auto" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
-    </div>
-    <div class="d-block">
-      <button class="d-inline my-2 btn btn-dark" v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
-      <input class="d-inline form-control w-50" placeholder="Új kategória neve" type="text" v-if="katAdd && moderalas" v-model="ujKat">
-    </div>
-    </div>
-
-    <!--FA-->
-    <div class="ml-3 mt-3">
-    <span v-for="fa in fak" :key="fa"> > {{fa}}</span>
-    </div>
-  
-    <!--Kategóriák-->
-    <div v-if="Bkategoria">
-      <div class="mt-2 row" v-for="d in kategoria" :key="d.id">
-      <div class="col-xl d-inline">
-        <!--Kategóriák - Cím-->
-        <div class="card-deck">
-          <div class="card">
-          <button class="btn btn-dark" v-on:click="katValasztas(index)">
-            <div class="card-body">
-            <p class="card-title">{{d.cim}}</p>
-            <p class="card-subtitle">Dátum: {{d.date}}</p>
-            </div>
-          </button>
+      <div id="forum-menu" class="col-xl-2 mx-auto border-right border-dark">
+        <div class="mb-3 m-0 p-1 text-center">
+          <h5>Legtöbbet hozzászólt</h5>
+          <hr>
+          <a v-for="(topik, index) in Ltopik" :key="index" class="d-block forum-menu-top nav-link" href="#">{{topik.cim}} - <span><kbd class="p-1">{{topik.kSzam}}</kbd></span></a>
+          <!--
+          <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
+          <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
+          <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
+          <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
+          <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
+          -->
+        </div>
+        <div class="mb-3 m-0 p-1 text-center">
+          <h5>Mostani top témák</h5>
+          <hr>
+          <a v-for="(top, index) in Tkategoria" :key="index" class="d-block forum-menu-top nav-link" href="#">{{top.cim}} - <span><kbd class="p-1">{{top.tSzam}}</kbd></span></a>
+            <!--
+            <a class="d-block forum-menu-top nav-link" href="#">Autok - <span><kbd class="p-1">129</kbd></span></a>
+            <a class="d-block forum-menu-top nav-link" href="#">BMW - <span><kbd class="p-1">65</kbd></span></a>
+            <a class="d-block forum-menu-top nav-link" href="#">Opel - <span><kbd class="p-1">234</kbd></span></a>
+            <a class="d-block forum-menu-top nav-link" href="#">Suzuki - <span><kbd class="p-1">10</kbd></span></a>
+            <a class="d-block forum-menu-top nav-link" href="#">Mercedes - <span><kbd class="p-1">78</kbd></span></a>
+            -->
+        </div>
+      </div>
+      <div class="col-xl mx-auto">
+        <div class="p-3 m-0  border-top border-bottom border-dark">
+          <button class="btn btn-dark my-2 ml-0 mr-2" v-on:click="vissza"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+          <select class="d-inline form-control w-50">
+            <option selected="">Latest</option>
+            <option value="1">Popular</option>
+            <option value="2">Solved</option>
+            <option value="3">Unsolved</option>
+            <option value="4">No Replies Yet</option>
+          </select>
+          <div id="menu" class="d-inline" v-if="beosztas === 'admin'">
+            <button class="btn btn-dark mb-2 pull-right my-auto" v-on:click="oldalModeralas()">{{Szmoderalas}}</button>
           </div>
-        <!--Kategória törlése gomb-->
-        <button v-if="moderalas" v-on:click="katTorles(index)">Kategória törlése</button>
+          <div class="d-block">
+            <button class="d-inline my-2 btn btn-dark" v-if="moderalas" v-on:click="katHozzaadas()">{{katSzoveg}}</button>
+            <input class="d-inline form-control w-50" placeholder="Új kategória neve" type="text" v-if="katAdd || moderalas" v-model="ujKat">
+          </div>
+        </div>
+
+        <!--FA-->
+        <div class="ml-3 mt-3">
+          <span v-for="(fa,index) in fak" :key="index"> > {{fa.cim}}</span>
+        </div>
+
+        <!--Kategóriák-->
+        <div class="wrapper" v-if="Bkategoria">
+          <div class="mt-2 row" v-for="(d, index) in kategoria" :key="index">
+              <div class="col-xl d-inline">
+              <!--Kategóriák - Cím-->
+                <div class="card-deck">
+                  <div class="card">
+                    <button class="btn btn-dark" v-on:click="katValasztas(index)">
+                      <div class="card-body">
+                        <p class="card-title">{{d.cim}}</p>
+                        <p class="card-subtitle">Dátum: {{d.date}}</p>
+                      </div>
+                    </button>
+                  </div>
+              <!--Kategória törlése gomb-->
+                <button v-if="moderalas" v-on:click="katTorles(index)">Kategória törlése</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!--Topikok-->
+      <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
+      <!--Topik hozzáadása-->
+      <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
+      <div class="wrapper" v-if="Btopikok">
+        <div class="mt-2 row" v-for="(t, index) in topikok" :key="index">
+          <div class="col-xl d-inline">
+            <div class="card-deck">
+              <div class="card">
+                <button class="btn btn-dark" v-on:click="komValasztas(index)">
+                  <div class="card-body">
+                    <!--Topik cím-->
+                    <div class="card-title">{{t.cim}}</div>
+                    <!--Topik dátum-->
+                    <div class="card-subtitle">Dátum: {{t.date}}</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Kommentek-->
+      <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
+      <div class="wrapper" v-if="Bkommentek">
+        <div class="mt-2 row" v-for="(k,index) in kommentek" :key="index">
+          <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
+          <div class="col-xl d-inline py-2 border border-warning">
+            <p>{{k.valaszId}} --- {{k.id}}</p>
+            <div>
+              <!--Komment picture-->
+              <img class="img-thumbnail rounded d-inline m-2" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
+              <!--maga a komment-->
+              <p class="">komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
+            </div>
+
+            <!--Komment válasz-->
+            <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
+            <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
+            <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
+
+            <!--Komment törlése-->  
+            <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-  
-    <!--Topikok-->
-    <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
-    <!--Topik hozzáadása-->
-    <button v-if="moderalas && Btopikok">Topik hozzáadása</button>
-    <div v-bind="Btopikok">
-    <div class="mt-2 row" v-for="t in topikok" :key="t.id">
-    <div class="col-xl d-inline">
-      <div class="card-deck">
-      <div class="card">
-        <button class="btn btn-dark" v-on:click="komValasztas(index)">
-        <div class="card-body">
-          <!--Topik cím-->
-          <div class="card-title">{{t.cim}}</div>
-          <!--Topik dátum-->
-          <div class="card-subtitle">Dátum: {{t.date}}</div>
-        </div>
-        </button>
-      </div>
-      </div>
-    </div>
-    </div>
-    </div>
-  
-    <!--Kommentek-->
-    <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
+  </div>
+
+  <!--Kommentek-->
+  <!--Azért raktam ezeket egy nagy div-be mert lusta voltam css-t csinálni és így van térköz és egy elválasztó is. Majd csak a v-if-re figyelj a többit törölheted ahogy szeretnéd-->
     <div v-if="Bkommentek">
-    <div class="mt-2 row" v-for="k in kommentek" :key="k.id">
-    <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
-      <div class="col-xl d-inline py-2 border border-warning">
-      <p>{{k.valaszId}} --- {{k.id}}</p>
-      <div>
-        <!--Komment picture-->
-        <img class="img-thumbnail rounded d-inline m-2" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
-        <!--maga a komment-->
-        <p class="">komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
-      </div>
+      <div class="mt-2 row" v-for="(k, index) in kommentek" :key="index">
+        <!--<div v-if="k.valaszId != -1" style="display: inline-block; height: 250px; width: 75px;">Hali</div>-->
+        <div class="col-xl d-inline py-2 border border-warning">
+          <p>{{k.valaszId}} --- {{k.id}}</p>
+          <div>
+            <!--Komment picture-->
+            <img class="img-thumbnail rounded d-inline m-2" v-bind:src="'kepek/f' + k.uId + '.jpg'" alt="profilkép">
+            <!--maga a komment-->
+            <p class="">komment: {{k.cim}}</p><h4>Dátum: {{k.date}}</h4>
+          </div>
 
-      <!--Komment válasz-->
-      <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
-      <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
-      <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
+          <!--Komment válasz-->
+        <button v-on:click="kommentValasz(index)">{{k.valaszSz}}</button>
+        <textarea v-show="k.valasz" name="" id="" cols="30" rows="10" v-model="komment"></textarea>
+        <button v-show="k.valasz" v-on:click="kommentkuldes(index)">Küldés</button>
 
-      <!--Komment törlése-->
-      <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
+        <!--Komment törlése-->
+        <button v-if="moderalas" v-on:click="komTorles(index)">Komment törlése</button>
       </div>
     </div>
-    </div>
   </div>
-  </div>
+</div>
 </template>
 
 
@@ -208,6 +234,7 @@ export default {
       //Felhasználók kezelése
       belepve: false,
       komment: '',
+      fa_id: 0,
     }
   },
   mounted: function() {
@@ -252,7 +279,8 @@ export default {
       this.Bkategoria = false;
 
       //TREE 
-      this.fak.push(this.kategoria[x].cim)
+      this.fak.push({cim: this.kategoria[x].cim, id: this.fa_id});
+      this.fa_id++;
 
 
       //Lekérjük a szerverről a bizonyos id-val rendelkező topikokat, majd a topikok Object-be berakjuk :D
@@ -271,7 +299,8 @@ export default {
       this.Bkommentek = true;
       this.Btopikok = false;
 
-      this.fak.push(this.topikok[x].cim)
+      this.fak.push({cim: this.topikok[x].cim, id: this.fa_id});
+      this.fa_id++;
 
       this.kommentek.push(
         {uId: 4,valaszId: -1, tId: 2,id: 7,cim: 'Jók a tükrök', date: '2021.03.01',valaszSz: 'Válasz',valasz: false},
@@ -347,6 +376,7 @@ export default {
         this.Bkommentek = false;
 
         this.fak.pop();
+        this.fa_id--;
       }
 
       if(this.Bkommentek)
@@ -356,6 +386,7 @@ export default {
         this.Bkommentek = false;
         
         this.fak.pop();
+        this.fa_id--;
       }
     },
     kommentValasz: function(x) {
