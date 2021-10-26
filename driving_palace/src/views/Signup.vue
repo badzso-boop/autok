@@ -60,7 +60,7 @@ export default {
     belepes: function() {
       event.preventDefault();
       console.log("Küldöm már ádó ;)")
-      fetch('valahovaelkuldom.com', {
+      fetch('http://localhost:8000/data/login', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(this.log)
@@ -75,7 +75,7 @@ export default {
     regisztracio: function() {
       event.preventDefault();
       console.log("Küldöm már ádó ;)")
-      fetch('valahovaelkuldom.com', {
+      fetch('http://localhost:8000/data/login', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(this.reg)

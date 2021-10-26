@@ -9,6 +9,13 @@ sub startup ($self) {
     my $config = $self->plugin('NotYAMLConfig');
 
     $self->helper(pg => sub { state $pg = Mojo::Pg->new('postgresql://vue@/vue') });
+    $self->hook(after_dispatch => sub { 
+        my $c = shift; 
+        $c->res->headers->header('Access-Control-Allow-Origin' => '*'); 
+        $c->res->headers->access_control_allow_origin('*');
+        $c->res->headers->header('Access-Control-Allow-Methods' => 'GET, OPTIONS, POST, DELETE, PUT');
+        $c->res->headers->header('Access-Control-Allow-Headers' => 'Content-Type' => 'application/x-www-form-urlencoded');
+    });
 
     # Configure the application
     $self->secrets($config->{secrets});
@@ -18,7 +25,6 @@ sub startup ($self) {
 
     # Normal route to controller
     $r->get('/')->to('example#welcome');
-    $r->get('/')->to(cb => sub ($c) { $c->render(text => $c->pg->db->query('SELECT username FROM users')->text) });
     
     # API
     {
