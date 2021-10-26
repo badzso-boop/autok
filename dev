@@ -1,0 +1,6 @@
+#!/bin/bash
+# © Copyright 2021 JSS & Hayer. All Rights Reserved.
+
+LOGFILE="devlog.log"
+
+morbo script/driving daemon -l http://localhost:8000 2>&1| ccze -A -p apm
