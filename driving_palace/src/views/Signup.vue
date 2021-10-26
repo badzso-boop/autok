@@ -13,9 +13,9 @@
       <label for="email" class="control-label mt-3 mb-0">Email</label>
       <input type="text" id="email" class="form-control" v-model="reg.email">
       <label for="password" class="control-label mt-3 mb-0">Jelszó</label>
-      <input type="text" id="password" class="form-control" v-model="reg.password">
+      <input type="password" id="password" class="form-control" v-model="reg.password">
       <label for="password" class="control-label mt-3 mb-0">Jelszó újra</label>
-      <input type="text" id="password" class="form-control" v-model="reg.password">
+      <input type="password" id="password" class="form-control" v-model="reg.password">
       <a href="#" v-on:click="sliderel">Belépek!</a>
       <button class="btn btn-dark form-control mt-3" v-on:click="regisztracio">Regisztráció</button>
     </form>
@@ -28,7 +28,7 @@
       <label for="email" class="control-label mt-3 mb-0">Email</label>
       <input type="text" id="email" class="form-control" v-model="log.email">
       <label for="password" class="control-label mt-3 mb-0">Jelszó</label>
-      <input type="text" id="password" class="form-control" v-model="log.password">
+      <input type="password" id="password" class="form-control" v-model="log.password">
       <a href="#" v-on:click="sliderad">Regisztrálok!</a>
       <button class="btn btn-dark form-control mt-3" v-on:click="belepes">Belépés</button>
     </form>
@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       reg: {
-        uname: '',
+        username: '',
         fullname: '',
         email: '',
         password: ''
