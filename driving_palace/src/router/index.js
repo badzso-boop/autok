@@ -55,6 +55,11 @@ const routes = [
     name: 'Contact',
     component: () => import('../views/Contact.vue')
   },
+  {
+    path: '/szabalyzat',
+    name: 'Rules',
+    component: () => import('../views/Rules.vue')
+  },
 ]
 
 const router = createRouter({

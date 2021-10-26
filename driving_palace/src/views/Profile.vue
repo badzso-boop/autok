@@ -18,7 +18,7 @@
       <!--<h3>{{alcim}}</h3>-->
       <div class="row">
       <div class="col-xl-8 text-center">
-        <img v-bind:src="'kepek/' + pPicture + '.jpg'" alt="Profilkép" style="max-width: 15rem;" class="border border-dark m-3">
+        <img v-bind:src="'assets/' + pPicture + '.jpg'" alt="Profilkép" style="max-width: 15rem;" class="border border-dark m-3">
       </div>
       <div class="col-xl-8 text-center">
         <h3 v-if="szerk" class="text-center my-3">{{fullname}}</h3>
@@ -44,17 +44,17 @@
 
       <div class="row my-2">
       <div class="col-xl-4 mx-auto">
-        <!--<img v-bind:src="'kepek/' + cPicture + '.jpg'" alt="Jármű kép" style="width: 250px;">-->
+        <!--<img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" style="width: 250px;">-->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <img v-bind:src="'kepek/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img v-bind:src="'kepek/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img v-bind:src="'kepek/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
         </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -82,7 +82,7 @@
       <!--<h2>{{alcim}}</h2>-->
       <div v-if="utjaim" class="card-deck mx-auto my-5">
       <div class="card sotetarny mx-auto mb-3 border border-white p-2" style="max-width: 22rem; min-width: 17rem;" v-for = "ut in utak" :key="ut.id">
-        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+        <img class="card-img-top mh-25 p-2" v-bind:src="'/assets/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
         <div class="card-body">
         <h5 class="card-title text-white">{{ut.title}}</h5>
         <p class="card-text text-white">{{ut.content}}</p>
@@ -150,7 +150,7 @@
       <!--<h2>{{alcim}}</h2>-->
       <div v-if="helyszineim" class="card-deck mx-auto my-5">
       <div class="card sotetarny mx-auto mb-3 border border-white p-2" style="max-width: 22rem; min-width: 17rem;" v-for = "hely in helyek" :key="hely.id">
-        <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
+        <img class="card-img-top mh-25 p-2" v-bind:src="'assets/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
         <div class="card-body">
         <h5 class="card-title text-white">{{hely.title}}</h5>
         <p class="card-text text-white">{{hely.content}}</p>
