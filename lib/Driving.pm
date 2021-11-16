@@ -8,7 +8,7 @@ sub startup ($self) {
     # Load configuration from config file
     my $config = $self->plugin('NotYAMLConfig');
 
-    $self->helper(pg => sub { state $pg = Mojo::Pg->new('postgresql://vue@/vue') });
+    $self->helper(pg => sub { state $pg = Mojo::Pg->new('postgresql://adesz@/driving') });
     $self->hook(after_dispatch => sub { 
         my $c = shift; 
         $c->res->headers->header('Access-Control-Allow-Origin' => '*'); 

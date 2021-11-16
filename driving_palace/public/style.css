@@ -89,6 +89,7 @@ img[alt="Profilkép"]
 
 #login-cover
 {
+    display: none;
     position: absolute;
     top: 50% !important;
     transform: translateY(-50%);
@@ -99,14 +100,14 @@ img[alt="Profilkép"]
     transform: translate(100%, -50%) !important;
 }
 
-#signup
+#signupa
 {
     position: absolute;
     top: 50% !important;
     transform: translate(45%, -50%) !important;
 }
 
-#login
+#logina
 {
     position: absolute;
     top: 50% !important;

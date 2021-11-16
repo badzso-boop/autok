@@ -44,7 +44,7 @@ INSERT INTO users (
     email,
     password
 ) values (
-    ?,?,?,?
+    ?,?,?,SHA256(?)
 ) RETURNING id
 SQL
 

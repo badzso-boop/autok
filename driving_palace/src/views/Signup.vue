@@ -75,7 +75,7 @@ export default {
     regisztracio: function() {
       event.preventDefault();
       console.log("Küldöm már ádó ;)")
-      fetch('http://localhost:8000/data/login', {
+      fetch('http://localhost:8000/data/signup', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(this.reg)
