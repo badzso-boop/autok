@@ -29,7 +29,7 @@
     </select>
 
     <label for="tipus">Megközelíthetőség</label>
-    <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="tipus">
+    <select name="tipus" class="form-group d-block w-100 form-control" id="tipus" v-model="type">
       <option value="" disabled selected hidden>Kérem Válasszon</option>
       <option value="Könnyű">Könnyen</option>
       <option value="Közepes">Nehézkes</option>
@@ -37,7 +37,7 @@
     </select>
 
     <label for="hossz">Férőhely</label>
-    <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="Fhely">
+    <input type="number" class="form-group d-block w-100 form-control" id="hossz" v-model="space">
     <button class="btn sotetarny text-white w-100 mb-3" v-on:click="kereses">Keresés</button>
     <hr>
     <router-link class="card-link btn sotetarny text-white w-100 mb-5 mt-3" to="/helyfeltoltes"><span><i class="fa fa-plus" aria-hidden="true"></i></span> Helyszín feltöltése</router-link>
@@ -54,8 +54,8 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item sotetarny text-white">{{hely.megye}}</li>
-        <li class="list-group-item sotetarny text-white">Megközelíthetőség: {{hely.kozelithetoseg}}</li>
-        <li class="list-group-item sotetarny text-white">Férőhely: {{hely.hely}}</li>
+        <li class="list-group-item sotetarny text-white">Megközelíthetőség: {{hely.type}}</li>
+        <li class="list-group-item sotetarny text-white">Férőhely: {{hely.space}}</li>
       </ul>
       <div class="card-body mx-auto">
         <a href="#" class="card-link piros py-1 px-3">Card link</a>
@@ -89,8 +89,8 @@ export default {
       pageStart: 0,
       //keresés
       megye: "",
-      tipus: "",
-      Fhely: 0,
+      type: "",
+      space: 0,
     }
   },
   mounted: function() {
@@ -135,7 +135,13 @@ export default {
     },
     kereses: function(event) {
       event.preventDefault();
-      console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t ferohely: " + this.Fhely);
+      console.log("megye: " + this.megye + " \t típus: " + this.type + "\t ferohely: " + this.space);
+      this.pageStart = 0;
+      fetch(`http://localhost:8000/places/filter`, {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify({county: this.megye, type: this.type, space: this.space, offset: this.pageStart})
+      }).then(response => response.json()).then(data => {this.helyek = data.data;});
     }
   }
 }

@@ -47,6 +47,7 @@ sub startup ($self) {
 
         $places->post('/upload')->to('places#upload');
         $places->get('/get/:offset' => [offset => qr/\d+/])->to('places#get');
+        $places->post('/filter')->to('places#filter');
     }
 }
 
