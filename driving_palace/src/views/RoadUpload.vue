@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <input type="file" class="mt-2 mb-4" @change="kepFeltolt">
+      <input type="file" class="mt-2 mb-4" @change="kepFeltolt($event)">
 
       <button class="btn sotetarny text-white w-100 mb-5" v-on:click="feltoltes">Feltöltés</button>
     </form>
@@ -79,6 +79,7 @@ export default {
     feltoltes: function(event) {
       event.preventDefault();
       console.log('Cím: ' + this.title + '\nLeírás: ' + this.content + '\nMegye: ' + this.megye + '\nTípus: ' + this.type + '\nMinőség:' + this.quality + '\nLength: ' + this.length + '\nKép:' + this.picture.name)
+      console.log('Faszom gecis kép: ' + this.picture);
       //send to the firebase server
       fetch('http://localhost:8000/roads/upload', {
           method: 'POST',

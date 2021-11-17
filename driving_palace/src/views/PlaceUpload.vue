@@ -78,15 +78,15 @@ export default {
       event.preventDefault();
       console.log('Cím: ' + this.title + '\nContent: ' + this.content + '\nMegye: ' + this.megye + '\nMegközelíthetőség: ' + this.type + '\nFérőhely: ' + this.Fhely);
       //send to the firebase server -> csak proba
-      fetch('https://drivingpalace-default-rtdb.europe-west1.firebasedatabase.app/helyek.json', {
+      fetch('http://localhost:8000/places/upload', {
         method: 'POST',
         body: JSON.stringify({
           title: this.title,
           content: this.content,
-          megye: this.megye,
+          county: this.megye,
           type: this.type,
-          Fhely: this.Fhely,
-          picture: 'not ready yet',
+          space: this.Fhely,
+          picture: this.picture,
         })
       })
       .then((response) => {

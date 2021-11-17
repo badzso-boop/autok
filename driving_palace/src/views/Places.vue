@@ -108,6 +108,7 @@ export default {
       console.log("oldal: "+this.page)
       console.log("listazaskezdo: "+this.pageStart)
       console.log("listazasvege: "+this.pageEnd)
+      /*
       for(let i = this.pageStart; i< this.pageEnd; i++)
       {
         this.helyek.push({id: 0,
@@ -121,6 +122,7 @@ export default {
           hely: 50,
           date: '2021.04.29 18:30'})
       }
+      */
       /*
       fetch('http://example.com/songs')
         .then(response => response.json())
