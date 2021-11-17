@@ -92,10 +92,8 @@ export default {
     return {
       //Utak
       utak: [],
-      seged: [],
       page:1,
       pageStart: 0,
-      pageEnd: 10,
       //keresés
       megye: "",
       tipus: "",
@@ -111,33 +109,16 @@ export default {
       //Elküldöm a szervernek a pageSTart és a pageEnd változókat,
       console.log("oldal: "+this.page)
       console.log("listazaskezdo: "+this.pageStart)
-      console.log("listazasvege: "+this.pageEnd)
     
       //Elküldöm a this.pagestart és a this.padeEnd változót és akkor megkapom az adatokat responseban pl: első 10db utat
 
       //feltöltöm a response adatokat az utak változóba így kerül ki az oldalra
-      // TODO: for helyett fetch!
 
-    fetch(`http://localhost:8000/roads/get/${this.pageStart}`)
-        .then(response => response.json())
-        .then(data => {
-            this.utak = data.data;
-            console.log(this.utak);
-        });
-      /*for(let i = this.pageStart; i< this.pageEnd; i++)
-      {
-        this.utak.push({id: 0,
-          userid: 0,
-          picture: 'sample',
-          title: `Rátót${i}`,
-          content: 'Rohadt jó út rátót fele. Ez egy jó út!',
-          length: 15,
-          megye: 'Veszprém',
-          type: 'szerpentín',
-          quality: 'kiválló',
-          nezetseg: 15,
-          date: '2021.04.29 18:30'})
-      }*/
+      fetch(`http://localhost:8000/roads/get/${this.pageStart}`)
+          .then(response => response.json())
+          .then(data => {
+              this.utak = data.data;
+          });
     },
     elore: function() {
       console.log('előre')

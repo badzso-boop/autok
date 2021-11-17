@@ -87,7 +87,6 @@ export default {
       //Oldal
       page:1,
       pageStart: 0,
-      pageEnd: 10,
       //keresés
       megye: "",
       tipus: "",
@@ -99,36 +98,14 @@ export default {
   },
   methods: {
     getHelyek: function() {
-      /*
-      Elküldöm a szervernek az oldalszámot(default:0),
-      Ő meg visszaküldi az első 50 utat
-      VAAAGY
-      Lekérem az összeset aztán én sortolom ki 50-vel -> Eloszor ezt
-      */
       console.log("oldal: "+this.page)
       console.log("listazaskezdo: "+this.pageStart)
-      console.log("listazasvege: "+this.pageEnd)
-      /*
-      for(let i = this.pageStart; i< this.pageEnd; i++)
-      {
-        this.helyek.push({id: 0,
-          userid: 0,
-          picture: 'sample',
-          title: 'Szabadja Halott város',
-          content: 'Olyan mintha visszamennénk a 80-s évekbe egyszerűen imádom!',
-          megye: 'Veszprém',
-          kozelithetoseg: 'könnyen',
-          nezetseg: 15,
-          hely: 50,
-          date: '2021.04.29 18:30'})
-      }
-      */
-      /*
-      fetch('http://example.com/songs')
+
+      fetch(`http://localhost:8000/places/get/${this.pageStart}`)
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.error(err));
-      */
+        .then(data => {
+            this.helyek = data.data;
+        });
     },
     elore: function() {
       console.log('előre')
@@ -136,7 +113,6 @@ export default {
       this.helyek = []
       //léptetem előre a kiiras kezdetet es veget
       this.pageStart+=10;
-      this.pageEnd+=10;
       //leptetem az oldalt
       this.page+=1;
       //ujra meghivom a lekerest
@@ -152,7 +128,6 @@ export default {
         console.log('Az első oldalon vagy!')
       }else {
         this.pageStart-=10;
-        this.pageEnd-=10;
         this.page-=1;
       }
       //ujra meghivoma lekerest
