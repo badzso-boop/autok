@@ -117,7 +117,14 @@ export default {
 
       //feltöltöm a response adatokat az utak változóba így kerül ki az oldalra
       // TODO: for helyett fetch!
-      for(let i = this.pageStart; i< this.pageEnd; i++)
+
+    fetch(`http://localhost:8000/roads/get/${this.pageStart}`)
+        .then(response => response.json())
+        .then(data => {
+            this.utak = data.data;
+            console.log(this.utak);
+        });
+      /*for(let i = this.pageStart; i< this.pageEnd; i++)
       {
         this.utak.push({id: 0,
           userid: 0,
@@ -130,7 +137,7 @@ export default {
           quality: 'kiválló',
           nezetseg: 15,
           date: '2021.04.29 18:30'})
-      }
+      }*/
     },
     elore: function() {
       console.log('előre')
@@ -138,7 +145,6 @@ export default {
       this.utak = []
       //léptetem előre a kiiras kezdetet es veget
       this.pageStart+=10;
-      this.pageEnd+=10;
       //leptetem az oldalt
       this.page+=1;
       //ujra meghivom a lekerest

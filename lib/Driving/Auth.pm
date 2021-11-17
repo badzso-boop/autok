@@ -1,5 +1,6 @@
 package Driving::Auth;
 use Mojo::Base 'Mojolicious::Controller';
+use Digest::SHA qw(sha256_base64); # a jelszótitkosításhoz
 
 sub login {
     my $c = shift;
@@ -8,7 +9,7 @@ sub login {
 
     return $c->render(status => 403, text => 'Hiányzó adatok!') unless exists $data->{email} and exists $data->{password};
     
-    my @p = ($data->{email}, $data->{password});
+    my @p = ($data->{email}, sha256_base64($data->{password}));
     my $res = $c->pg->db->query(<<SQL, @p)->hash;
 SELECT
     *
@@ -17,7 +18,7 @@ FROM
 WHERE
     email = ?
 AND
-    password = SHA256(?)
+    password = ?
 SQL
     
     return $c->render(status => 404, text => 'Nem található felhasználó!') unless keys %$res;
@@ -34,8 +35,10 @@ sub signup {
         $data->{username},
         $data->{fullname},
         $data->{email},
-        $data->{password},
+        sha256_base64($data->{password}),
     );
+
+     
 
     my $res = $c->pg->db->query(<<SQL, @p)->hash;
 INSERT INTO users (
@@ -44,7 +47,7 @@ INSERT INTO users (
     email,
     password
 ) values (
-    ?,?,?,SHA256(?)
+    ?,?,?,?
 ) RETURNING id
 SQL
 

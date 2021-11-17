@@ -80,16 +80,17 @@ export default {
       event.preventDefault();
       console.log('Cím: ' + this.title + '\nLeírás: ' + this.content + '\nMegye: ' + this.megye + '\nTípus: ' + this.type + '\nMinőség:' + this.quality + '\nLength: ' + this.length + '\nKép:' + this.picture.name)
       //send to the firebase server
-      fetch('https://drivingpalace-default-rtdb.europe-west1.firebasedatabase.app/utak.json', {
+      fetch('http://localhost:8000/roads/upload', {
           method: 'POST',
+          mode: 'cors',
           body: JSON.stringify({
             title: this.title,
             content: this.content,
-            megye: this.megye,
+            county: this.megye,
             type: this.type,
             quality: this.quality,
             length: this.length,
-            picture: 'not ready yet',
+            picture: this.picture,
           })
       })
       .then((response) => {

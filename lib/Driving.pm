@@ -9,6 +9,7 @@ sub startup ($self) {
     my $config = $self->plugin('NotYAMLConfig');
 
     $self->helper(pg => sub { state $pg = Mojo::Pg->new('postgresql://adesz@/driving') });
+    $self->helper(debug => sub { state $debug = Mojo::Log->new(); });
     $self->hook(after_dispatch => sub { 
         my $c = shift; 
         $c->res->headers->header('Access-Control-Allow-Origin' => '*'); 
@@ -32,6 +33,12 @@ sub startup ($self) {
 
         $data->post('/login')->to('auth#login');
         $data->post('/signup')->to('auth#signup');
+    }
+    # Roads
+    {
+        my $roads = $r->under('/roads');
+        $roads->post('/upload')->to('roads#upload');
+        $roads->get('/get/:offset' => [offset => qr/\d+/])->to('roads#get');
     }
 }
 
