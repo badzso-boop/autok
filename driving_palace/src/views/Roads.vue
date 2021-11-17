@@ -151,6 +151,12 @@ export default {
       event.preventDefault();
       console.log("megye: " + this.megye + " \t típus: " + this.tipus + "\t minoseg: " + this.minoseg + "\t hossz: " + this.hossz);
       //Elküldöm az adatokat a szervernek és ő erre szűkíti rá a keresést
+      this.pageStart = 0;
+      fetch(`http://localhost:8000/roads/filter`, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({county: this.megye, type: this.tipus, quality: this.minoseg, length: this.hossz, offset: this.pageStart})
+        }).then(response => response.json()).then(data => {this.utak = data.data;});
     },
   },
 }

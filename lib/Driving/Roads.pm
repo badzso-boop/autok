@@ -61,5 +61,49 @@ SQL
     return $c->render(status => 200, json => { data => $res });
 }
 
+sub filter {
+    my $c = shift;
+
+    my $json = $c->req->json;
+
+    return $c->render(status => 400, json => { msg => 'size expected'}) if (length($c->req->body) > 262144);
+    return $c->render(status => 400, json => { msg => 'bad format'}) unless (ref($c->req->json) eq 'HASH');
+
+    # county
+    # type
+    # quality
+    # length
+    
+    my @p = (
+        $json->{county},
+        $json->{type},
+        $json->{quality},
+        $json->{length},
+        $json->{offset},
+    );
+
+    $c->app->log->debug(Dumper($json));
+
+    my $res = $c->pg->db->query(<<SQL, @p)->hashes;
+SELECT
+    *
+FROM
+    roads
+WHERE
+    county = ?
+AND
+    type = ?
+AND
+    quality = ?
+AND
+    length = ?
+ORDER BY created DESC
+LIMIT 10
+OFFSET ?
+SQL
+    
+    return $c->render(status => 404, json => { msg => 'Hiányzó utak!' }) unless scalar @$res > 0;
+    return $c->render(status => 200, json => { data => $res });
+}
 
 1;

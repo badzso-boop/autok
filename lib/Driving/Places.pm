@@ -49,7 +49,6 @@ LIMIT 10
 OFFSET ?
 SQL
 
-    $c->app->log->debug(Dumper($res));
     return $c->render(status => 404, json => { msg => 'Hiányzó utak!' }) unless scalar @$res > 0;
     return $c->render(status => 200, json => { data => $res });
 }

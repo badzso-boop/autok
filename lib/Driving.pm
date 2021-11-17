@@ -39,6 +39,7 @@ sub startup ($self) {
         my $roads = $r->under('/roads');
         $roads->post('/upload')->to('roads#upload');
         $roads->get('/get/:offset' => [offset => qr/\d+/])->to('roads#get');
+        $roads->post('/filter')->to('roads#filter');
     }
     # Places
     {
