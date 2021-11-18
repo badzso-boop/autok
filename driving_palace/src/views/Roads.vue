@@ -54,7 +54,8 @@
       <div class="col-xl">
         <div class="card-deck mx-auto my-5">
           <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "ut in utak" :key="ut.id">
-            <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+            <!--<img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">-->
+            <img class="card-img-top mh-25 p-2" src="../kepek/sample.jpg" alt="Kép a megadott útról">
             <div class="card-body">
               <h5 class="card-title text-white">{{ut.title}}</h5>
               <p class="card-text text-white">{{ut.content}}</p>

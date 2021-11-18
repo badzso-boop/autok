@@ -70,7 +70,7 @@ export default {
       type: '',
       Fhely: 0,
       picture: null,
-      proba: null
+      url: null,
     }
   },
   methods: {
@@ -102,9 +102,11 @@ export default {
       this.type = '';
       this.Fhely = 0;
     },
-    kepFeltolt: function(event) {
-      this.picture = event.target.files[0];
-      console.log(this.picture);
+    kepFeltolt: function(e) {
+      //this.picture = event.target.files[0];
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+      console.log(this.picture + " - " + this.url);
     }
   }
 }

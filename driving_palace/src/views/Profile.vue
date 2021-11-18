@@ -18,7 +18,8 @@
       <!--<h3>{{alcim}}</h3>-->
       <div class="row">
       <div class="col-xl-8 text-center">
-        <img v-bind:src="'assets/' + pPicture + '.jpg'" alt="Profilkép" style="max-width: 15rem;" class="border border-dark m-3">
+        <!--<img v-bind:src="'assets/' + pPicture + '.jpg'" alt="Profilkép" style="max-width: 15rem;" class="border border-dark m-3">-->
+        <img src="../assets/profile.jpg" alt="Profilkép" style="max-width: 15rem;" class="border border-dark m-3">
       </div>
       <div class="col-xl-8 text-center">
         <h3 v-if="szerk" class="text-center my-3">{{fullname}}</h3>
@@ -45,16 +46,16 @@
       <div class="row my-2">
       <div class="col-xl-4 mx-auto">
         <!--<img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" style="width: 250px;">-->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
-          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img src="../assets/car.jpg" alt="Jármű kép" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img src="../assets/car.jpg" alt="Jármű kép" class="d-block w-100">
         </div>
         <div class="carousel-item">
-          <img v-bind:src="'assets/' + cPicture + '.jpg'" alt="Jármű kép" class="d-block w-100">
+          <img src="../assets/car.jpg" alt="Jármű kép" class="d-block w-100">
         </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -65,7 +66,8 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
         </a>
-        </div>
+        </div>-->
+        <img src="../assets/car.jpg" alt="Jármű kép" class="d-block w-100">
       </div>
       <div class="col-xl-4"></div>
       </div>

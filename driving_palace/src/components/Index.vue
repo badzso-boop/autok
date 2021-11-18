@@ -31,7 +31,8 @@
       <div class="col-xl">
         <div class="card-deck mx-auto my-5">
           <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "ut in mUtak" :key="ut.id">
-            <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">
+            <!--<img class="card-img-top mh-25 p-2" v-bind:src="'../kepek/' + ut.picture + '.jpg'" alt="Kép a megadott útról">-->
+            <img class="card-img-top mh-25 p-2" src="../kepek/sample.jpg" alt="Kép a megadott útról">
             <div class="card-body">
               <h5 class="card-title text-white">{{ut.title}}</h5>
               <p class="card-text text-white">{{ut.content}}</p>
@@ -55,7 +56,8 @@
     <div class="col-xl">
       <div class="card-deck mx-auto my-5">
         <div class="card sotetarny mx-auto mb-3 border border-white" style="max-width: 22rem; min-width: 17rem;" v-for = "hely in mHely" :key="hely.id">
-          <img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">
+          <!--<img class="card-img-top mh-25 p-2" v-bind:src="'kepek/' + hely.picture + '.jpg'" alt="Kép a megadott útról">-->
+          <img class="card-img-top mh-25 p-2" src="../kepek/sample.jpg" alt="Kép a megadott helyről">
           <div class="card-body">
             <h5 class="card-title text-white">{{hely.title}}</h5>
             <p class="card-text text-white">{{hely.content}}</p>
@@ -94,7 +96,6 @@ export default {
       //minden fetch elemnél pusholni kell a tömbbe
       for(let i = 0; i < 4; i++)
       {
-          console.log('baj ut')
           this.mUtak.push({id: 0,
               userid: 0,
               picture: 'sample',
